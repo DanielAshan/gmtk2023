@@ -6,7 +6,7 @@ public class JLo: MonoBehaviour
 {
     public static JLo Instance { get; private set;}
     public TextAsset targetJsonFile;
-    public TextAsset tweetsJsonFile;
+    public TextAsset twitsJsonFile;
     public TextAsset mockTweetsJsonFile;
 
     private void Awake() {
@@ -26,11 +26,11 @@ public class JLo: MonoBehaviour
         return targetsInJson;
     }
 
-    public Tweets LoadTweets()
+    public Twits LoadTwits()
     {
-        Tweets tweetsInJson = JsonUtility.FromJson<Tweets>(tweetsJsonFile.text);
+        Twits twitsInJson = JsonUtility.FromJson<Twits>(twitsJsonFile.text);
 
-        return tweetsInJson;
+        return twitsInJson;
     }
 
     public MockTweets LoadMockTweets()
