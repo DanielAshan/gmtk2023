@@ -44,9 +44,22 @@ public class TwitDB : MonoBehaviour
         return listOfRequestedTwits;
     }
 
-    public void GetSpecificTwit (string matchingTraitString, int matchingScoreVal)
+    public Twit GetSpecificTwit (string matchingTraitString, int matchingScoreVal)
     {
         Debug.Log("called getspecifictwit");
+
+        foreach (Twit twit in shuffledTwits)
+        {
+            foreach (string trait in twit.triggered_traits)
+            {
+                if (twit.agenda_score == 2 && 
+                    trait.Contains(matchingTraitString))
+                    {
+                        return twit;
+                    }
+            }
+        }
+        throw new System.Exception("GetSpecificTwit couldn't find requested twit.");
     }
 
     public Twit DequeueTwitFromTwits()
