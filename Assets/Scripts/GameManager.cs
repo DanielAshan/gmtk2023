@@ -5,7 +5,7 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set;}
-    [SerializeField] Texture pfp;
+    public string pfpResourcePath = "sample_avatar";
 
     private int turnCounter = 0;
     private int targetCounter = 0;
@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour
     private UserProfile currentTarget;
 
     private UserProfileDB usersDB;
+    private TimelineTweetDB timelineTweetDB;
 
     private void Awake() {
         if ( Instance != null)
@@ -24,7 +25,9 @@ public class GameManager : MonoBehaviour
         Instance = this;
         currentTarget = new UserProfile();
         usersDB = new UserProfileDB();
+        timelineTweetDB = new TimelineTweetDB();
         usersDB.StartDB();
+        timelineTweetDB.StartDB();
     }
 
     private void Start() {
@@ -45,22 +48,19 @@ public class GameManager : MonoBehaviour
         
         // Prepare new selectable tweets;
         List<Tweet> selectableTweets = new List<Tweet>();
-        selectableTweets.Add(new Tweet(pfp, "Luke Groundwalker", "sandlover", "I like to tweet very much"));
-        selectableTweets.Add(new Tweet(pfp, "Indiana Tomes", "averagewhipenjoyer", "Starfield will have minimum 60 fps on ultra on Celeron #starfield"));
-        selectableTweets.Add(new Tweet(pfp, "Gerwant from Poland", "monsterhunter", "Skyrim should run on your bed clock"));
+        selectableTweets.Add(new Tweet(pfpResourcePath, "Luke Groundwalker", "sandlover", "I like to tweet very much"));
+        selectableTweets.Add(new Tweet(pfpResourcePath, "Indiana Tomes", "averagewhipenjoyer", "Starfield will have minimum 60 fps on ultra on Celeron #starfield"));
+        selectableTweets.Add(new Tweet(pfpResourcePath, "Gerwant from Poland", "monsterhunter", "Skyrim should run on your bed clock"));
         // selectableTweets.Add(new Tweet(pfp, "Rahid", "otaku_in_closet", "It's not like I like anime bbbbbba-ka!!!! #anime #catgirlsforall"));
         // selectableTweets.Add(new Tweet(pfp, "Shockwellenreiter", "bicyc", "Cycling in the nineties!!! #cycplus"));
-        selectableTweets.Add(new Tweet(pfp, "Indiana Tomes", "averagewhipenjoyer", "Starfield will have minimum 60 fps on ultra on Celeron #starfield"));
-        selectableTweets.Add(new Tweet(pfp, "Gerwant from Poland", "monsterhunter", "Skyrim should run on your bed clock"));
+        selectableTweets.Add(new Tweet(pfpResourcePath, "Indiana Tomes", "averagewhipenjoyer", "Starfield will have minimum 60 fps on ultra on Celeron #starfield"));
+        selectableTweets.Add(new Tweet(pfpResourcePath, "Gerwant from Poland", "monsterhunter", "Skyrim should run on your bed clock"));
 
         SelectableTweetsManager.Instance.StartSelectableTweetsManager(selectableTweets);
 
         // Prepare timeline
         // Get mock Tweets
-        List<Tweet> nonInteractableTweets = new List<Tweet>();
-        nonInteractableTweets.Add(new Tweet(pfp, "Gerwant from Poland", "monsterhunter", "Skyrim should run on your bed clock"));
-        nonInteractableTweets.Add(new Tweet(pfp, "Indiana Tomes", "averagewhipenjoyer", "Starfield will have minimum 60 fps on ultra on Celeron #starfield"));
-        nonInteractableTweets.Add(new Tweet(pfp, "Luke Groundwalker", "sandlover", "I like to tweet very much"));
+        List<Tweet> nonInteractableTweets = timelineTweetDB.GetNumberofTimelineTweets(3);
 
         // Set mock tweets
         TimelineManager.Instance.SetNonInteractableTweets(nonInteractableTweets);

@@ -60,6 +60,9 @@ public class TwitDB : MonoBehaviour
             }
         }
         throw new System.Exception("GetSpecificTwit couldn't find requested twit.");
+    public void GetSpecificTwit (string matchingTraitString, int matchingScoreVal)
+    {
+        Debug.Log("called getspecifictwit");
     }
 
     public Twit DequeueTwitFromTwits()

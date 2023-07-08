@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 public class Tweet 
 {
-    private Texture profilePicture;
+    private string pfpResourcePath;
     private string userName;
     private string userHandle;
     private string tweetText;
@@ -14,9 +14,9 @@ public class Tweet
     private int selectedIndex = -1;
 
 
-    public Tweet(Texture profilePicture, string username, string userHandle, string tweetText)
+    public Tweet(string pfpPath, string username, string userHandle, string tweetText)
     {
-        this.profilePicture = profilePicture;
+        this.pfpResourcePath = pfpPath;
         this.userName = username;
         this.userHandle = "@" + userHandle;
         this.tweetText = tweetText;
@@ -25,7 +25,7 @@ public class Tweet
 
     public Tweet(string username, string userHandle, string tweetText)
     {
-        this.profilePicture = null;
+        this.pfpResourcePath = "";
         this.userName = username;
         this.userHandle = "@" + userHandle;
         this.tweetText = tweetText;
@@ -39,9 +39,9 @@ public class Tweet
         this.tweetText = "SELECT TWEET";
     } 
 
-    public void SetTweetData(Texture profilePicture, string username, string userHandle, string tweetText)
+    public void SetTweetData(string pfpPath, string username, string userHandle, string tweetText)
     {
-        this.profilePicture = profilePicture;
+        this.pfpResourcePath = pfpPath;
         this.userName = username;
         this.userHandle = "@" + userHandle;
         this.tweetText = tweetText;
@@ -62,9 +62,14 @@ public class Tweet
     {
         return shouldBeInteractable;
     }
-    public Texture GetUserPFP()
+    public string GetUserPFP()
     {
-        return profilePicture;
+        return pfpResourcePath;
+    }
+
+    public Texture GetUserPFPAsTexture()
+    {
+        return Resources.Load(pfpResourcePath) as Texture2D;;
     }
 
     public string GetUserName()

@@ -22,7 +22,7 @@ public class TweetVisual : MonoBehaviour
         button.onClick.AddListener(HandleButtonOnClick);
     }
 
-    public void SetTweetData(Texture pfp, string name, string handle, string text) => tweet.SetTweetData(pfp, name, handle, text);
+    public void SetTweetData(string pfpPath, string name, string handle, string text) => tweet.SetTweetData(pfpPath, name, handle, text);
     public bool IsEmpty() => tweet.IsEmpty();
     public bool GetShouldBeInteractable() => tweet.GetShouldBeInteractable();
 
@@ -69,7 +69,7 @@ public class TweetVisual : MonoBehaviour
     {
         if (tweet.GetUserPFP() != null)
         {
-            profilePicture.texture = tweet.GetUserPFP();
+            profilePicture.texture = tweet.GetUserPFPAsTexture();
         }
         userName.text = tweet.GetUserName();
         userHandle.text = tweet.GetUserHandle();
