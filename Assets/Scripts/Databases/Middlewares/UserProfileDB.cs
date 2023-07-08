@@ -59,7 +59,6 @@ public class UserProfileDB
     {
         userProfiles = usedUserProfiles;
         userProfiles.Reverse();
-        userProfiles.Sort();
         usedUserProfiles = new List<UserProfile>();
     }
 
