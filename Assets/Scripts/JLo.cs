@@ -7,7 +7,7 @@ public class JLo : MonoBehaviour
     public TextAsset targetJsonFile;
     public TextAsset tweetsJsonFile;
 
-    void Start()
+    public void LoadTargets()
     {
         Targets targetsInJson = JsonUtility.FromJson<Targets>(targetJsonFile.text);
 
@@ -18,11 +18,9 @@ public class JLo : MonoBehaviour
         }
 
         Debug.Log("LOADING TWEETS NOW");
-
-        LoadTweets();
     }
 
-    void LoadTweets()
+    public void LoadTweets()
     {
         Tweets tweetsInJson = JsonUtility.FromJson<Tweets>(tweetsJsonFile.text);
 
