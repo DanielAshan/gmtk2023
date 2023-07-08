@@ -11,21 +11,40 @@ public class TargetDB : MonoBehaviour
     public Targets loadedTargets;
 
     
-
-    void Start()
+    public void Awake()
+    {
+        List<Target> someTargets = LoadAndRandomizeTargets();
+    }
+    public List<Target> LoadAndRandomizeTargets()
     {
 
 
         loadedTargets = jloader.LoadTargets(); 
 
-
-        System.Random random = new System.Random();
-        loadedTargets.targets = loadedTargets.targets.OrderBy(x => random.Next()).ToArray();
-        foreach (var i in loadedTargets.targets)
+        List<Target>TargetsToShuffle = loadedTargets.targets;
+        var count = TargetsToShuffle.Count;
+        var last = count - 1;
+        for (var i = 0; i < last; ++i)
         {
-            Debug.Log(i.name);
+            var r = UnityEngine.Random.Range(i, count);
+            var tmp = TargetsToShuffle[i];
+            TargetsToShuffle[i] = TargetsToShuffle[r];
+            TargetsToShuffle[r] = tmp;
+
+            Debug.Log(TargetsToShuffle[i].name);
         }
+
+
+        // System.Random random = new System.Random();
+        // loadedTargets.targets = (List<Target>)loadedTargets.targets.OrderBy(x => random.Next()); 
+        // foreach (var i in loadedTargets.targets)
+        // {
+        //     Debug.Log(i.name);
+        // }
+
+        return TargetsToShuffle;
     
     }
+
 
 }

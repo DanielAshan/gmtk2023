@@ -1,5 +1,8 @@
+using System;
+using System.Collections.Generic;
+
 [System.Serializable]
 public class Targets
 {
-    public Target[] targets;
+    public List<Target> targets;
 }
