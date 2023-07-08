@@ -7,6 +7,7 @@ public class UserProfile
     public string avatarResourcePath;
     public string userName;
     public string userHandle;
+    public string description;
     public string[] traits;
 
     public int boredomLevel;

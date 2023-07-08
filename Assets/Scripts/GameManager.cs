@@ -28,17 +28,9 @@ public class GameManager : MonoBehaviour
     }
     public void StartRound()
     {
-        // Set target
-        currentTarget.avatarResourcePath = "hrld";
-        currentTarget.userName = "Harold The Pain";
-        currentTarget.userHandle = "@nagatokonoha";
-        currentTarget.traits = new string[] {
-            "Likes to visit lots of places", 
-            "Fond of starships", 
-            "Lives Long and Prospers"};
-
-        TargetInformationUI.Instance.SetTargetUser(currentTarget);
-
+        // Setup new target
+        SetNewTarget();
+        
         // Reset turn counter
         turnCounter = 0;
         // Start turn -> load tweets to use
@@ -46,22 +38,25 @@ public class GameManager : MonoBehaviour
     }
     public void StartTurn()
     {
+        
         // Prepare new selectable tweets;
         List<Tweet> selectableTweets = new List<Tweet>();
-        selectableTweets.Add(new Tweet(pfp, "Todd Howard", "notaliar", "I like to tweet very much"));
-        selectableTweets.Add(new Tweet(pfp, "Todd Howard", "notaliar", "Starfield will have minimum 60 fps on ultra on Celeron #starfield"));
-        selectableTweets.Add(new Tweet(pfp, "Todd Howard", "secondtodd", "Skyrim should run on your bed clock"));
-        selectableTweets.Add(new Tweet(pfp, "Rahid", "otaku_in_closet", "It's not like I like anime bbbbbba-ka!!!! #anime #catgirlsforall"));
-        selectableTweets.Add(new Tweet(pfp, "Shockwellenreiter", "bicyc", "Cycling in the nineties!!! #cycplus"));
+        selectableTweets.Add(new Tweet(pfp, "Luke Groundwalker", "sandlover", "I like to tweet very much"));
+        selectableTweets.Add(new Tweet(pfp, "Indiana Tomes", "averagewhipenjoyer", "Starfield will have minimum 60 fps on ultra on Celeron #starfield"));
+        selectableTweets.Add(new Tweet(pfp, "Gerwant from Poland", "monsterhunter", "Skyrim should run on your bed clock"));
+        // selectableTweets.Add(new Tweet(pfp, "Rahid", "otaku_in_closet", "It's not like I like anime bbbbbba-ka!!!! #anime #catgirlsforall"));
+        // selectableTweets.Add(new Tweet(pfp, "Shockwellenreiter", "bicyc", "Cycling in the nineties!!! #cycplus"));
+        selectableTweets.Add(new Tweet(pfp, "Indiana Tomes", "averagewhipenjoyer", "Starfield will have minimum 60 fps on ultra on Celeron #starfield"));
+        selectableTweets.Add(new Tweet(pfp, "Gerwant from Poland", "monsterhunter", "Skyrim should run on your bed clock"));
 
         SelectableTweetsManager.Instance.StartSelectableTweetsManager(selectableTweets);
 
         // Prepare timeline
         // Get mock Tweets
         List<Tweet> nonInteractableTweets = new List<Tweet>();
-        nonInteractableTweets.Add(new Tweet(pfp, "Todd Howard", "notaliar", "I like to tweet very much"));
-        nonInteractableTweets.Add(new Tweet(pfp, "Todd Howard", "notaliar", "Starfield will have minimum 60 fps on ultra on Celeron #starfield"));
-        nonInteractableTweets.Add(new Tweet(pfp, "Rahid", "otakudupaku", "Sakura is my favorite character in Boruto: Shippuuden"));
+        nonInteractableTweets.Add(new Tweet(pfp, "Gerwant from Poland", "monsterhunter", "Skyrim should run on your bed clock"));
+        nonInteractableTweets.Add(new Tweet(pfp, "Indiana Tomes", "averagewhipenjoyer", "Starfield will have minimum 60 fps on ultra on Celeron #starfield"));
+        nonInteractableTweets.Add(new Tweet(pfp, "Luke Groundwalker", "sandlover", "I like to tweet very much"));
 
         // Set mock tweets
         TimelineManager.Instance.SetNonInteractableTweets(nonInteractableTweets);
@@ -70,11 +65,21 @@ public class GameManager : MonoBehaviour
         TimelineManager.Instance.StartTimelineManager();
     }
 
-    public void InstantiateNewTarget()
+    public void SetNewTarget()
     {
         // Get new target from database
+        currentTarget.avatarResourcePath = "sample_avatar";
+        currentTarget.userName = "Harold The Pain";
+        currentTarget.userHandle = "@nagatokonoha";
+        currentTarget.description = "Wants to destroy visible villages";
+        currentTarget.traits = new string[] {
+            "Likes to visit lots of places", 
+            "Fond of starships", 
+            "Lives Long and Prospers"};
 
-        // Set target data
+        TargetInformationUI.Instance.SetTargetUser(currentTarget);
+        
+        // Reset agenda and boredom levels
     }
     public void EndTurn()
     {
