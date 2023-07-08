@@ -1,17 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class TimelineManager : MonoBehaviour
 {
     public static TimelineManager Instance { get; private set;}
     [SerializeField] Transform timelineContainerTransform;
-    [SerializeField] Texture pfp;
+    [SerializeField] Transform endTurnGameObject;
     [SerializeField] GameObject tweetPrefab;
     public Tweet[] tweetsOnTimeline;
     public List<Transform> tweetsVisualised;
     public TweetVisual[] tweetSlots;
-    private Tweet[] nonInteracableTweets;
+    private List<Tweet> nonInteractableTweets;
+    private Button endTurnButton;
 
     private void Awake() {
         if ( Instance != null)
@@ -23,20 +25,29 @@ public class TimelineManager : MonoBehaviour
         Instance = this;
         tweetsOnTimeline = new Tweet[6];
         tweetsVisualised = new List<Transform>();
-        nonInteracableTweets = new Tweet[3];
+        nonInteractableTweets = new List<Tweet>();
+        endTurnButton = endTurnGameObject.GetComponent<Button>();
+        endTurnButton.interactable = false;
     }
-    void Start()
+    public void StartTimelineManager()
     {
-        GenerateNonInteractableTweets();
+        
         GenerateInitialTimelineData();
         VisualiseTweets();
     }
 
-    public void GenerateNonInteractableTweets()
+    public void CleanTimelineManager()
     {
-        nonInteracableTweets[0] = new Tweet(pfp, "Todd Howard", "notaliar", "I like to tweet very much");
-        nonInteracableTweets[1] = new Tweet(pfp, "Todd Howard", "notaliar", "Starfield will have minimum 60 fps on ultra on Celeron #starfield");
-        nonInteracableTweets[2] = new Tweet(pfp, "Rahid", "otakudupaku", "Sakura is my favorite character in Boruto: Shippuuden");
+        CleanVisuals();
+        tweetsOnTimeline = new Tweet[6];
+        tweetsVisualised = new List<Transform>();
+        nonInteractableTweets = new List<Tweet>();
+        endTurnButton.interactable = false;
+    }
+
+    public void SetNonInteractableTweets(List<Tweet> tweets)
+    {
+        nonInteractableTweets = tweets;
     }
 
     public void GenerateInitialTimelineData()
@@ -51,7 +62,7 @@ public class TimelineManager : MonoBehaviour
             else
             {
                 // Add nonInteractableTweet
-                tweetsOnTimeline[i] = nonInteracableTweets[ i / 2];
+                tweetsOnTimeline[i] = nonInteractableTweets[ i / 2];
                 tweetsOnTimeline[i].SetShouldBeInteractable(false);
             }
         }
@@ -59,12 +70,7 @@ public class TimelineManager : MonoBehaviour
 
     public void VisualiseTweets()
     {
-        foreach (Transform tweet in tweetsVisualised)
-        {
-            Destroy(tweet.gameObject);
-        }
-
-        tweetsVisualised = new List<Transform>();
+        CleanVisuals();
 
         foreach (Tweet tweet in tweetsOnTimeline)
         {
@@ -79,6 +85,15 @@ public class TimelineManager : MonoBehaviour
         }
     }
 
+    private void CleanVisuals()
+    {
+        foreach (Transform tweet in tweetsVisualised)
+        {
+            Destroy(tweet.gameObject);
+        }
+
+        tweetsVisualised = new List<Transform>();
+    }
     public void AddTweetToSlot(Tweet tweet)
     {
         int emptyIndex = FindFirstEmptySlot();
@@ -93,12 +108,20 @@ public class TimelineManager : MonoBehaviour
         tweet.SetSelectedIndex(emptyIndex);
         SelectableTweetsManager.Instance.RemoveTweetFromSelectable(tweet);
         VisualiseTweets();        
+
+        // Check if this was the last slot, if yes, enable end turn button
+        if ( FindFirstEmptySlot() == -1)
+        {
+            endTurnButton.interactable = true;
+        }
     }
 
     public void RemoteTweetFromSlot(int index)
     {
         tweetsOnTimeline[index] = new Tweet();
         VisualiseTweets();
+
+        endTurnButton.interactable = false;
     }
 
     public int FindFirstEmptySlot()
@@ -116,4 +139,18 @@ public class TimelineManager : MonoBehaviour
         return -1;
     }
 
+    public List<Tweet> GetListOfTimelineTweets()
+    {
+        List<Tweet> listOfTweets = new List<Tweet>();
+         for (int i = 0; i < tweetsOnTimeline.Length; i++)
+        {
+            Tweet tweet = tweetsOnTimeline[i];
+            if (tweet.GetShouldBeInteractable() == true) 
+            {
+                listOfTweets.Add(tweet);
+            }
+        }
+
+        return listOfTweets;
+    }
 }

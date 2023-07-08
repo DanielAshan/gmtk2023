@@ -21,24 +21,22 @@ public class SelectableTweetsManager : MonoBehaviour
         Instance = this;
         tweetVisuals = new List<Transform>();
         selectableTweets = new List<Tweet>();
-        selectableTweets.Add(new Tweet(pfp, "Todd Howard", "notaliar", "I like to tweet very much"));
-        selectableTweets.Add(new Tweet(pfp, "Todd Howard", "notaliar", "Starfield will have minimum 60 fps on ultra on Celeron #starfield"));
-        selectableTweets.Add(new Tweet(pfp, "Todd Howard", "secondtodd", "Skyrim should run on your bed clock"));
-        selectableTweets.Add(new Tweet(pfp, "Rahid", "otaku_in_closet", "It's not like I like anime bbbbbba-ka!!!! #anime #catgirlsforall"));
-        selectableTweets.Add(new Tweet(pfp, "Shockwellenreiter", "bicyc", "Cycling in the nineties!!! #cycplus"));
     }
 
-    private void Start() {
+    public void StartSelectableTweetsManager( List<Tweet> listOfTweets) {
+        selectableTweets = listOfTweets;
         VisualiseTweets();
+    }
+
+    public void CleanSelectableTweetsManager()
+    {
+        CleanVisuals();
+        tweetVisuals = new List<Transform>();
+        selectableTweets = new List<Tweet>();
     }
     public void VisualiseTweets()
     {
-        foreach (Transform tweet in tweetVisuals)
-        {
-            Destroy(tweet.gameObject);
-        }
-
-        tweetVisuals = new List<Transform>();
+        CleanVisuals();
 
         foreach(Tweet tweet in selectableTweets)
         {
@@ -49,6 +47,15 @@ public class SelectableTweetsManager : MonoBehaviour
         }
     }
 
+    private void CleanVisuals()
+    {
+        foreach (Transform tweet in tweetVisuals)
+        {
+            Destroy(tweet.gameObject);
+        }
+
+        tweetVisuals = new List<Transform>();
+    }
     public void AddTweetToSelectable(Tweet tweet)
     {
         selectableTweets.Add(tweet);
