@@ -41,7 +41,6 @@ public class MockTweetDB : MonoBehaviour
         for (int i = 0; i < numOfMockTweets; i++)
         {
             listOfRequestedMockTweets.Add(shuffledMockTweets[i]);
-            Debug.Log(shuffledMockTweets[i].content);
         }
 
         return listOfRequestedMockTweets;

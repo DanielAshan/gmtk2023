@@ -1,0 +1,16 @@
+{
+    "twits":[
+        {
+            "content": "i've just played skyrim on my #cycplus, bethesda rocks!",
+            "profile_pic": "{path_here}",
+            "username": "",
+            "handle": "",
+            "agenda_score": 5,
+            "triggered_traits":[
+                "first trait",
+                "second trait",
+                "third trait"
+            ] 
+        }
+    ]
+}
