@@ -10,7 +10,8 @@ public class TargetInformationUI : MonoBehaviour
     private TextMeshProUGUI userNameText;
     [SerializeField]
     private TextMeshProUGUI handleText;
-
+    [SerializeField]
+    private TextMeshProUGUI descriptonText;
     [SerializeField]
     private TextMeshProUGUI traitsText;
 
@@ -41,7 +42,7 @@ public class TargetInformationUI : MonoBehaviour
     {
         userNameText.text = targetUser.userName;
         handleText.text = targetUser.userHandle;
-
+        descriptonText.text = targetUser.description;
         traitsText.text = targetUser.GetTraits();
 
         texture = Resources.Load(targetUser.avatarResourcePath) as Texture2D;
