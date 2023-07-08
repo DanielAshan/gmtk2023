@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] Texture pfp;
 
     private int turnCounter = 0;
+    private int targetCounter = 0;
 
     private UserProfile currentTarget;
 
@@ -19,15 +20,27 @@ public class GameManager : MonoBehaviour
             return;
         }
         Instance = this;
+        currentTarget = new UserProfile();
     }
 
     private void Start() {
-        StartTurn();
+        StartRound();
     }
     public void StartRound()
     {
         // Set target
+        currentTarget.avatarResourcePath = "hrld";
+        currentTarget.userName = "Harold The Pain";
+        currentTarget.userHandle = "@nagatokonoha";
+        currentTarget.traits = new string[] {
+            "Likes to visit lots of places", 
+            "Fond of starships", 
+            "Lives Long and Prospers"};
 
+        TargetInformationUI.Instance.SetTargetUser(currentTarget);
+
+        // Reset turn counter
+        turnCounter = 0;
         // Start turn -> load tweets to use
         StartTurn();
     }
@@ -87,10 +100,14 @@ public class GameManager : MonoBehaviour
     {
         // Check if all targets done
         Debug.Log("Round ended");
+        targetCounter++;
         // Check different agendaLevels, set flags
 
         // If some stuff like enough targets done -> end game 
-
+        if (targetCounter == 3)
+        {
+            EndGame();
+        }
         // Else start new round
         StartRound();
 
@@ -99,5 +116,7 @@ public class GameManager : MonoBehaviour
     public void EndGame()
     {
         // Prepare outcome?
+        Debug.Log("GAME OVER");
+        Debug.Log("YOU DID WELL MISTER ALGORITHM");
     }
 }
