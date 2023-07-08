@@ -29,11 +29,7 @@ public class Testing : MonoBehaviour
         {
             Transform newObject = Instantiate(tweetPrefab, tweetContainerTransform).transform;
             OptionTweet newTweet = newObject.GetComponent<OptionTweet>();
-            newTweet.profilePicture.texture = pfp;
-            newTweet.userName.text = tweet.userName;
-            newTweet.userHandle.text = tweet.userHandle;
-            newTweet.tweetText.text = tweet.tweetText;
-
+            newTweet.SetTweetData(pfp, tweet.userName, tweet.userHandle, tweet.tweetText);
         }
     }
 }

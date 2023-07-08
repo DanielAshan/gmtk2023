@@ -15,5 +15,6 @@ public class Tweet
         this.userName = username;
         this.userHandle = "@" + userHandle;
         this.tweetText = tweetText;
+
     }
 }
