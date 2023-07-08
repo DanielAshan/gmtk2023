@@ -1,22 +1,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TwitDB : MonoBehaviour
+public class TwitDB
 {
-    public JLo jloader;
-
     private Twits loadedTwits;
 
     private List<Twit> shuffledTwits;
 
-    public void Awake()
+    public void StartDB()
     {
         shuffledTwits = LoadAndRandomizeTwits();
     }
 
     private List<Twit> LoadAndRandomizeTwits()
     {
-        loadedTwits = jloader.LoadTwits();
+        loadedTwits = JLo.Instance.LoadTwits();
 
         List<Twit> twitsToShuffle = loadedTwits.twits;
         var count = twitsToShuffle.Count;
@@ -60,9 +58,6 @@ public class TwitDB : MonoBehaviour
             }
         }
         throw new System.Exception("GetSpecificTwit couldn't find requested twit.");
-    public void GetSpecificTwit (string matchingTraitString, int matchingScoreVal)
-    {
-        Debug.Log("called getspecifictwit");
     }
 
     public Twit DequeueTwitFromTwits()

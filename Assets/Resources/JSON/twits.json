@@ -2,9 +2,9 @@
     "twits":[
         {
             "content": "i've just played skyrim on my #cycplus, bethesda rocks!",
-            "profile_pic": "{path_here}",
-            "username": "",
-            "handle": "",
+            "profile_pic": "sample_avatar",
+            "username": "Gural",
+            "handle": "ciupaga",
             "agenda_score": 0,
             "triggered_traits":[
                 "pierwszy trait",
@@ -14,9 +14,9 @@
         },
         {
             "content": "i've just played bethesda on my #cycplus, bethesda rocks!",
-            "profile_pic": "{path_here}",
-            "username": "",
-            "handle": "",
+            "profile_pic": "sample_avatar",
+            "username": "Gural",
+            "handle": "ciupaga",
             "agenda_score": 2,
             "triggered_traits":[
                 "first trait",
@@ -26,9 +26,33 @@
         },
         {
             "content": "i've just played morrowind on my #cycplus, bethesda rocks!",
-            "profile_pic": "{path_here}",
-            "username": "",
-            "handle": "",
+            "profile_pic": "sample_avatar",
+            "username": "Gural",
+            "handle": "ciupaga",
+            "agenda_score": 1,
+            "triggered_traits":[
+                "pierwszy trait",
+                "drugi trait",
+                "trzeci trait"
+            ] 
+        },
+        {
+            "content": "loscypek tanio sprzedam",
+            "profile_pic": "sample_avatar",
+            "username": "Gural",
+            "handle": "ciupaga",
+            "agenda_score": 1,
+            "triggered_traits":[
+                "pierwszy trait",
+                "drugi trait",
+                "trzeci trait"
+            ] 
+        },
+        {
+            "content": "why i am still selling oscypek",
+            "profile_pic": "sample_avatar",
+            "username": "Gural",
+            "handle": "ciupaga",
             "agenda_score": 1,
             "triggered_traits":[
                 "pierwszy trait",

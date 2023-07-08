@@ -22,15 +22,15 @@ public class Testing : MonoBehaviour
         //     }
         // }
 
-        Twit theTwit = twitDB.GetSpecificTwit("drugi", 2);
+        // Twit theTwit = twitDB.GetSpecificTwit("drugi", 2);
 
-        Debug.Log(theTwit.content);
-        List<Twit> twitsList = twitDB.GetNumOfTwits(1);
+        // Debug.Log(theTwit.content);
+        // List<Twit> twitsList = twitDB.GetNumOfTwits(1);
 
-        foreach (Twit i in twitsList)
-        {
-            Debug.Log(i.agenda_score);
-            Debug.Log(i.content);
-        }
+        // foreach (Twit i in twitsList)
+        // {
+        //     Debug.Log(i.agenda_score);
+        //     Debug.Log(i.content);
+        // }
     }
 }
