@@ -1,22 +1,21 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TargetDB : MonoBehaviour
+public class TargetDB
 {
-    public JLo jloader;
-
     private Targets loadedTargets;
 
     private List<Target> shuffledTargets;
-
     
-    public void Awake()
+    public void StartDB()
     {
+        
         shuffledTargets = LoadAndRandomizeTargets();
     }
+
     private List<Target> LoadAndRandomizeTargets()
     {
-        loadedTargets = jloader.LoadTargets(); 
+        loadedTargets = JLo.Instance.LoadTargets(); 
 
         List<Target>targetsToShuffle = loadedTargets.targets;
         var count = targetsToShuffle.Count;
@@ -34,6 +33,10 @@ public class TargetDB : MonoBehaviour
         return targetsToShuffle;
     }
 
+    public List<Target> GetAllTargets()
+    {
+        return shuffledTargets;
+    }
     public Target DequeueTargetFromTargets()
     {
         Target poppedTarget = PopAtIndex(shuffledTargets, 0);
