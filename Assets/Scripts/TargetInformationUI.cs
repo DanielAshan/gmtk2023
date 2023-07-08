@@ -16,6 +16,12 @@ public class TargetInformationUI : MonoBehaviour
     private TextMeshProUGUI traitsText;
 
     [SerializeField]
+    private Slider agendaSlider;
+
+    [SerializeField]
+    private Slider boredomSlider;
+
+    [SerializeField]
     public RawImage avatar;
 
     Texture2D texture;

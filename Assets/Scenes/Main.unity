@@ -1252,9 +1252,8 @@ GameObject:
   m_Component:
   - component: {fileID: 822462359}
   - component: {fileID: 822462361}
-  - component: {fileID: 822462360}
   m_Layer: 5
-  m_Name: BoredomBar
+  m_Name: AgendaBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1281,18 +1280,6 @@ RectTransform:
   m_AnchoredPosition: {x: 147, y: 0}
   m_SizeDelta: {x: -600, y: -590}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &822462360
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 822462358}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c7eae4ec8b714a845825c776d47dd5eb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &822462361
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1338,9 +1325,9 @@ MonoBehaviour:
   m_HandleRect: {fileID: 0}
   m_Direction: 2
   m_MinValue: 0
-  m_MaxValue: 1
-  m_WholeNumbers: 0
-  m_Value: 1
+  m_MaxValue: 6
+  m_WholeNumbers: 1
+  m_Value: 0
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -2073,9 +2060,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1535992656}
   - component: {fileID: 1535992658}
-  - component: {fileID: 1535992657}
   m_Layer: 5
-  m_Name: InterestBar
+  m_Name: BoredomBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2102,18 +2088,6 @@ RectTransform:
   m_AnchoredPosition: {x: 224, y: 0}
   m_SizeDelta: {x: -600, y: -590}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1535992657
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1535992655}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c7eae4ec8b714a845825c776d47dd5eb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1535992658
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2140,7 +2114,7 @@ MonoBehaviour:
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
-    m_ColorMultiplier: 1
+    m_ColorMultiplier: 1.12
     m_FadeDuration: 0.1
   m_SpriteState:
     m_HighlightedSprite: {fileID: 0}
@@ -2159,9 +2133,9 @@ MonoBehaviour:
   m_HandleRect: {fileID: 0}
   m_Direction: 2
   m_MinValue: 0
-  m_MaxValue: 1
-  m_WholeNumbers: 0
-  m_Value: 1
+  m_MaxValue: 10
+  m_WholeNumbers: 1
+  m_Value: 0
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -2216,7 +2190,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.58224195, g: 0.031327877, b: 0.6037736, a: 1}
+  m_Color: {r: 0.040677104, g: 0.031372562, b: 0.6039216, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -3320,6 +3294,8 @@ MonoBehaviour:
   handleText: {fileID: 1599267451}
   descriptonText: {fileID: 890457668}
   traitsText: {fileID: 196613638}
+  agendaSlider: {fileID: 822462361}
+  boredomSlider: {fileID: 1535992658}
   avatar: {fileID: 418916212}
 --- !u!114 &2052370091
 MonoBehaviour:
