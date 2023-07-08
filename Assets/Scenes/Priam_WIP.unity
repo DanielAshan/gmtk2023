@@ -766,7 +766,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c156eac5e2c9b24d8bf60995d5e8783, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tomlFile: {fileID: 0}
 --- !u!1 &553230277
 GameObject:
   m_ObjectHideFlags: 0
@@ -1583,7 +1582,7 @@ MonoBehaviour:
   timelineContainerTransform: {fileID: 663901419}
   pfp: {fileID: 2800000, guid: 517e6272d24fe9a4ebf6414f7b37a5e1, type: 3}
   tweetPrefab: {fileID: 6530901138384190313, guid: de8857ed92e13fb41815410e21d6d7da, type: 3}
-  tweetsOnTimeline: []
+  tweetsVisualised: []
   tweetSlots: []
 --- !u!1 &664792568
 GameObject:
@@ -1749,9 +1748,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c7d1bcc1f3a8a94eb1de02f44abdf9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tweetContainerTransform: {fileID: 625243634}
-  tweetPrefab: {fileID: 6530901138384190313, guid: de8857ed92e13fb41815410e21d6d7da, type: 3}
-  pfp: {fileID: 2800000, guid: 517e6272d24fe9a4ebf6414f7b37a5e1, type: 3}
 --- !u!4 &713331903
 Transform:
   m_ObjectHideFlags: 0
@@ -2506,7 +2502,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f07f6185ad4e7a8498db6c701d95414c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jsonFile: {fileID: 4900000, guid: 6a844f9499e02334bb87088251e048f8, type: 3}
+  targetJsonFile: {fileID: 4900000, guid: 6a844f9499e02334bb87088251e048f8, type: 3}
+  tweetsJsonFile: {fileID: 4900000, guid: c19bab3de14aa1644ad2d0e5d00846d1, type: 3}
 --- !u!4 &1399198395
 Transform:
   m_ObjectHideFlags: 0
