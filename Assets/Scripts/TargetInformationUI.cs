@@ -5,6 +5,9 @@ using TMPro;
 
 public class TargetInformationUI : MonoBehaviour
 {
+    public static TargetInformationUI Instance { get; private set;}
+    [SerializeField]
+    private TextMeshProUGUI userNameText;
     [SerializeField]
     private TextMeshProUGUI handleText;
 
@@ -16,16 +19,32 @@ public class TargetInformationUI : MonoBehaviour
 
     Texture2D texture;
 
-    void Start()
+    public UserProfile targetUser;
+
+    private void Awake() {
+        if ( Instance != null)
+        {
+            Debug.LogError("There's more than once GameManager! " + transform + " - " + Instance);
+            Destroy(gameObject);
+            return;
+        }
+        Instance = this;
+    }
+
+    public void SetTargetUser(UserProfile targetUser)
     {
-        handleText.text = "This is a test text";
+        this.targetUser = targetUser;
+        UpdateVisual();
+    }
 
-        traitsText.text = " - This is a first trait \n - This is a second trait \n - And this is a third trait";
+    public void UpdateVisual()
+    {
+        userNameText.text = targetUser.userName;
+        handleText.text = targetUser.userHandle;
 
-        texture = Resources.Load("hrld") as Texture2D;
+        traitsText.text = targetUser.GetTraits();
 
-        Debug.Log(texture);
-
-        avatar.GetComponent<RawImage>().texture = texture;
+        texture = Resources.Load(targetUser.avatarResourcePath) as Texture2D;
+        avatar.texture = texture;
     }
 }
