@@ -2,22 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MockTweetDB : MonoBehaviour
+public class MockTweetDB
 {
-    public JLo jloader;
-
     private MockTweets loadedMockTweets;
 
     private List<MockTweet> shuffledMockTweets;
 
-    private void Awake()
+    public void StartDB()
     {
         shuffledMockTweets = LoadAndRandomizeMockTweets();
     }
 
     private List<MockTweet> LoadAndRandomizeMockTweets()
     {
-        loadedMockTweets = jloader.LoadMockTweets();
+        loadedMockTweets = JLo.Instance.LoadMockTweets();
 
         List<MockTweet> mockTweetsToShuffle = loadedMockTweets.mocktweets;
 
@@ -33,7 +31,11 @@ public class MockTweetDB : MonoBehaviour
 
         return mockTweetsToShuffle;
     }
-
+    public List<MockTweet> GetAllMockTweets()
+    {
+        return shuffledMockTweets;
+    }
+    
     public List<MockTweet> GetNumOfMockTweets(int numOfMockTweets)
     {
         List<MockTweet> listOfRequestedMockTweets = new List<MockTweet>();

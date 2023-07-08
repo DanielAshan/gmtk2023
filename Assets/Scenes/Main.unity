@@ -1497,6 +1497,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetJsonFile: {fileID: 4900000, guid: 6a844f9499e02334bb87088251e048f8, type: 3}
   tweetsJsonFile: {fileID: 4900000, guid: c19bab3de14aa1644ad2d0e5d00846d1, type: 3}
+  mockTweetsJsonFile: {fileID: 4900000, guid: 4bd687282e858c04f929eb900e548280, type: 3}
 --- !u!4 &940225470
 Transform:
   m_ObjectHideFlags: 0
@@ -3024,7 +3025,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea893ff15395efb4493c377a40ab2167, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pfp: {fileID: 2800000, guid: ac8fc250716c7a647874b651dafbeab4, type: 3}
+  pfpResourcePath: sample_avatar
 --- !u!4 &1869074547
 Transform:
   m_ObjectHideFlags: 0
