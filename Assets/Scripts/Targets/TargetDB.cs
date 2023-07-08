@@ -8,43 +8,48 @@ public class TargetDB : MonoBehaviour
 {
     public JLo jloader;
 
-    public Targets loadedTargets;
+    private Targets loadedTargets;
+
+    private List<Target> shuffledTargets;
 
     
     public void Awake()
     {
-        List<Target> someTargets = LoadAndRandomizeTargets();
+        shuffledTargets = LoadAndRandomizeTargets();
     }
-    public List<Target> LoadAndRandomizeTargets()
+    private List<Target> LoadAndRandomizeTargets()
     {
-
-
         loadedTargets = jloader.LoadTargets(); 
 
-        List<Target>TargetsToShuffle = loadedTargets.targets;
-        var count = TargetsToShuffle.Count;
-        var last = count - 1;
+        List<Target>targetsToShuffle = loadedTargets.targets;
+        var count = targetsToShuffle.Count;
+        var last = count;
         for (var i = 0; i < last; ++i)
         {
             var r = UnityEngine.Random.Range(i, count);
-            var tmp = TargetsToShuffle[i];
-            TargetsToShuffle[i] = TargetsToShuffle[r];
-            TargetsToShuffle[r] = tmp;
+            var tmp = targetsToShuffle[i];
+            targetsToShuffle[i] = targetsToShuffle[r];
+            targetsToShuffle[r] = tmp;
 
-            Debug.Log(TargetsToShuffle[i].name);
+            // Debug.Log(targetsToShuffle[i].name);
         }
 
-
-        // System.Random random = new System.Random();
-        // loadedTargets.targets = (List<Target>)loadedTargets.targets.OrderBy(x => random.Next()); 
-        // foreach (var i in loadedTargets.targets)
-        // {
-        //     Debug.Log(i.name);
-        // }
-
-        return TargetsToShuffle;
-    
+        return targetsToShuffle;
     }
 
+    public Target DequeueTargetFromTargets()
+    {
+        Target poppedTarget = PopAtIndex(shuffledTargets, 0);
+
+        return poppedTarget;
+    }
+
+    public static Target PopAtIndex<Target>(List<Target> list, int index)
+    {  
+        Target r = list[index];
+        list.RemoveAt(index);
+
+        return r;
+    }
 
 }
