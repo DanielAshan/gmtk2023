@@ -12,6 +12,8 @@ public class GameManager : MonoBehaviour
 
     private UserProfile currentTarget;
 
+    private UserProfileDB usersDB;
+
     private void Awake() {
         if ( Instance != null)
         {
@@ -21,6 +23,8 @@ public class GameManager : MonoBehaviour
         }
         Instance = this;
         currentTarget = new UserProfile();
+        usersDB = new UserProfileDB();
+        usersDB.StartDB();
     }
 
     private void Start() {
@@ -30,7 +34,7 @@ public class GameManager : MonoBehaviour
     {
         // Setup new target
         SetNewTarget();
-        
+
         // Reset turn counter
         turnCounter = 0;
         // Start turn -> load tweets to use
@@ -68,10 +72,7 @@ public class GameManager : MonoBehaviour
     public void SetNewTarget()
     {
         // Get new target from database
-        currentTarget.avatarResourcePath = "sample_avatar";
-        currentTarget.userName = "Harold The Pain";
-        currentTarget.userHandle = "@nagatokonoha";
-        currentTarget.description = "Wants to destroy visible villages";
+        currentTarget = usersDB.PopUserProfile();
         currentTarget.traits = new string[] {
             "Likes to visit lots of places", 
             "Fond of starships", 

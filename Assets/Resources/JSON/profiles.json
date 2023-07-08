@@ -4,34 +4,19 @@
             "name": "John Starfield",
             "handle": "masseffectfan00",
             "desc": "Spaceman since 1999, say howdy if you see me",
-            "profile_pic": "pathhere",
-            "traits": [
-                "Likes to visit lots of places",
-                "Fond of starships",
-                "Lives Long and Prospers"
-            ]
+            "avatarResourcePath": "sample_avatar"
         },
         {
             "name": "Doom Guy",
             "handle": "bigfunkyguy_mars",
             "desc": "likes cats and yasmin tea, also rips and tears",
-            "profile_pic": "pathhere",
-            "traits": [
-                "BFG Division",
-                "Been to both Mars and Hell",
-                "Won Ninja Warrior in 2017"
-            ]
+            "avatarResourcePath": "sample_avatar"
         },
         {
             "name": "Obra Dinn",
             "handle": "TimeMachineX",
             "desc": "is a ship",
-            "profile_pic": "pathhere",
-            "traits": [
-                "An overall good game",
-                "Gets easily lost, even on open spaces",
-                "Fond of krakens and crackers"
-            ]
+            "avatarResourcePath": "sample_avatar"
         }
     ]
 }
