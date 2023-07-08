@@ -1,35 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
-using TMPro;
 
 public class Testing : MonoBehaviour
 {
-    [SerializeField] Transform  tweetContainerTransform;
-    [SerializeField] GameObject tweetPrefab;
-    [SerializeField] Texture pfp;
-    private List<Tweet> tweetsToGenerate;
+    [SerializeField] Transform  testTransform;
     // Start is called before the first frame update
-    private void Awake() {
-        tweetsToGenerate = new List<Tweet>();
-        tweetsToGenerate.Add(new Tweet(pfp, "Todd Howard", "notaliar", "I like to tweet very much"));
-        tweetsToGenerate.Add(new Tweet(pfp, "Todd Howard", "notaliar", "Starfield will have minimum 60 fps on ultra on Celeron #starfield"));
-        tweetsToGenerate.Add(new Tweet(pfp, "Todd Howard", "secondtodd", "Skyrim should run on your bed clock"));
-        tweetsToGenerate.Add(new Tweet(pfp, "Rahid", "otaku_in_closet", "It's not like I like anime bbbbbba-ka!!!! #anime #catgirlsforall"));
-        tweetsToGenerate.Add(new Tweet(pfp, "Shockwellenreiter", "bicyc", "Cycling in the nineties!!! #cycplus"));
+    void Start()
+    {
+        
     }
 
-    private void Start() {
-        GenerateTweetsSelect();
-    }
-    public void GenerateTweetsSelect()
+    // Update is called once per frame
+    void Update()
     {
-        foreach(Tweet tweet in tweetsToGenerate)
-        {
-            Transform newObject = Instantiate(tweetPrefab, tweetContainerTransform).transform;
-            OptionTweet newTweet = newObject.GetComponent<OptionTweet>();
-            newTweet.SetTweetData(pfp, tweet.userName, tweet.userHandle, tweet.tweetText);
-        }
+        
     }
 }
