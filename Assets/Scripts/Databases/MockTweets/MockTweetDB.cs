@@ -4,15 +4,46 @@ using UnityEngine;
 
 public class MockTweetDB : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public JLo jloader;
+
+    private MockTweets loadedMockTweets;
+
+    private List<MockTweet> shuffledMockTweets;
+
+    private void Awake()
     {
-        
+        shuffledMockTweets = LoadAndRandomizeMockTweets();
     }
 
-    // Update is called once per frame
-    void Update()
+    private List<MockTweet> LoadAndRandomizeMockTweets()
     {
-        
+        loadedMockTweets = jloader.LoadMockTweets();
+
+        List<MockTweet> mockTweetsToShuffle = loadedMockTweets.mocktweets;
+
+        var count = mockTweetsToShuffle.Count;
+        var last = count;
+        for (var i = 0; i < last; ++i)
+        {
+            var r = UnityEngine.Random.Range(i, count);
+            var tmp = mockTweetsToShuffle[i];
+            mockTweetsToShuffle[i] = mockTweetsToShuffle[r];
+            mockTweetsToShuffle[r] = tmp;
+        }
+
+        return mockTweetsToShuffle;
+    }
+
+    public List<MockTweet> GetNumOfMockTweets(int numOfMockTweets)
+    {
+        List<MockTweet> listOfRequestedMockTweets = new List<MockTweet>();
+
+        for (int i = 0; i < numOfMockTweets; i++)
+        {
+            listOfRequestedMockTweets.Add(shuffledMockTweets[i]);
+            Debug.Log(shuffledMockTweets[i].content);
+        }
+
+        return listOfRequestedMockTweets;
     }
 }

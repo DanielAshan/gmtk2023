@@ -6,5 +6,5 @@ using TMPro;
 
 public class Testing : MonoBehaviour
 {
-    
+
 }
