@@ -6,19 +6,41 @@ using TMPro;
 
 public class OptionTweet : MonoBehaviour
 {
-    [SerializeField] public RawImage profilePicture;
-    [SerializeField] public TextMeshProUGUI userName;
-    [SerializeField] public TextMeshProUGUI userHandle;
-    [SerializeField] public TextMeshProUGUI tweetText;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
+    [SerializeField] private RawImage profilePicture;
+    [SerializeField] private TextMeshProUGUI userName;
+    [SerializeField] private TextMeshProUGUI userHandle;
+    [SerializeField] private TextMeshProUGUI tweetText;
+
+    private bool isEmpty = true;
+    private Button button;
+    private void Awake() {
+        userName.text = "";
+        userHandle.text = "";
+        tweetText.text = "SELECT TWEET";
+        this.button = GetComponent<Button>();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void SetTweetData(Texture pfp, string name, string handle, string text)
     {
-        
+        profilePicture.texture = pfp;
+        userName.text = name;
+        userHandle.text = handle;
+        tweetText.text = text;
+        isEmpty = false;
+    }
+
+    public void DisableTweet()
+    {
+        button.interactable = false;
+    }
+
+    public void EnableTweet()
+    {
+        button.interactable = true;
+    }
+
+    public bool IsEmpty()
+    {
+        return isEmpty;
     }
 }
