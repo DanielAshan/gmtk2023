@@ -1134,6 +1134,51 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 587919198}
   m_CullTransparentMesh: 1
+--- !u!1 &592720597
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 592720599}
+  - component: {fileID: 592720598}
+  m_Layer: 0
+  m_Name: MockTweetDB
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &592720598
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 592720597}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c0b3adea3187f047a3ea3bc47334876, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  jloader: {fileID: 1399198394}
+--- !u!4 &592720599
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 592720597}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 488.5014, y: 257.39764, z: -20.769356}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &593919838
 GameObject:
   m_ObjectHideFlags: 0
@@ -1748,7 +1793,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c7d1bcc1f3a8a94eb1de02f44abdf9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetDB: {fileID: 1116211445}
+  mockTweetDB: {fileID: 592720598}
 --- !u!4 &713331903
 Transform:
   m_ObjectHideFlags: 0
@@ -2550,6 +2595,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetJsonFile: {fileID: 4900000, guid: 6a844f9499e02334bb87088251e048f8, type: 3}
   tweetsJsonFile: {fileID: 4900000, guid: c19bab3de14aa1644ad2d0e5d00846d1, type: 3}
+  mockTweetsJsonFile: {fileID: 4900000, guid: 4bd687282e858c04f929eb900e548280, type: 3}
 --- !u!4 &1399198395
 Transform:
   m_ObjectHideFlags: 0
@@ -3169,7 +3215,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   userNameText: {fileID: 0}
   handleText: {fileID: 664792570}
+  descriptonText: {fileID: 0}
   traitsText: {fileID: 156281956}
+  agendaSlider: {fileID: 0}
+  boredomSlider: {fileID: 0}
   avatar: {fileID: 593919840}
 --- !u!114 &1879324881
 MonoBehaviour:
