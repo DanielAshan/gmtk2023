@@ -1,18 +1,18 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class TargetInformationUI : MonoBehaviour
 {
-    // Start is called before the first frame update
+    [SerializeField]
+    private TextMeshProUGUI handleText;
+
+    [SerializeField]
+    private TextMeshProUGUI traitsText;
+
     void Start()
     {
-        
-    }
+        handleText.text = "This is a test text";
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        traitsText.text = " - This is a first trait \n - This is a second trait \n - And this is a third trait";
     }
 }
