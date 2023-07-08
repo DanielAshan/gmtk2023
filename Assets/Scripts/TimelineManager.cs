@@ -12,8 +12,8 @@ public class TimelineManager : MonoBehaviour
     private Tweet[] nonInteracableTweets;
 
     private void Awake() {
-        tweetsOnTimeline = new OptionTweet[5];
-        nonInteracableTweets = new Tweet[2];
+        tweetsOnTimeline = new OptionTweet[6];
+        nonInteracableTweets = new Tweet[3];
     }
     void Start()
     {
@@ -31,11 +31,12 @@ public class TimelineManager : MonoBehaviour
     {
         nonInteracableTweets[0] = new Tweet(pfp, "Todd Howard", "notaliar", "I like to tweet very much");
         nonInteracableTweets[1] = new Tweet(pfp, "Todd Howard", "notaliar", "Starfield will have minimum 60 fps on ultra on Celeron #starfield");
+        nonInteracableTweets[2] = new Tweet(pfp, "Rahid", "otakudupaku", "Sakura is my favorite character in Boruto: Shippuuden");
     }
 
     public void GenerateTimeline()
     {
-        for (int i = 0; i < 5; i++)
+        for (int i = 0; i < 6; i++)
         {
             if ( i % 2 == 0)
             {
