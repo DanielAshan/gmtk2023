@@ -2,7 +2,9 @@
     "targets": [
         {
             "name": "John Starfield",
+            "handle": "masseffectfan00",
             "desc": "Spaceman since 1999, say howdy if you see me",
+            "profile_pic": "pathhere",
             "traits": [
                 "Likes to visit lots of places",
                 "Fond of starships",
@@ -11,7 +13,9 @@
         },
         {
             "name": "Doom Guy",
+            "handle": "bigfunkyguy_mars",
             "desc": "likes cats and yasmin tea, also rips and tears",
+            "profile_pic": "pathhere",
             "traits": [
                 "BFG Division",
                 "Been to both Mars and Hell",
@@ -20,7 +24,9 @@
         },
         {
             "name": "Obra Dinn",
+            "handle": "TimeMachineX",
             "desc": "is a ship",
+            "profile_pic": "pathhere",
             "traits": [
                 "An overall good game",
                 "Gets easily lost, even on open spaces",
