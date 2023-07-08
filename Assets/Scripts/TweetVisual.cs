@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using System;
 
 public class TweetVisual : MonoBehaviour
 {
@@ -48,7 +49,20 @@ public class TweetVisual : MonoBehaviour
 
     public void HandleButtonOnClick()
     {
-        TimelineManager.Instance.AddTweetToSlot(tweet);
+        if (tweet.IsEmpty())
+        {
+            return;
+        }
+
+        if (tweet.GetSelected())
+        {
+            SelectableTweetsManager.Instance.AddTweetToSelectable(tweet);
+        }
+        else
+        {
+            TimelineManager.Instance.AddTweetToSlot(tweet);
+        }
+        
     }
 
     private void UpdateTweetVisual()

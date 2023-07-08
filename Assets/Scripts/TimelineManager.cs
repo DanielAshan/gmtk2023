@@ -61,7 +61,6 @@ public class TimelineManager : MonoBehaviour
     {
         foreach (Transform tweet in tweetsVisualised)
         {
-            Debug.Log("Destroying tweets");
             Destroy(tweet.gameObject);
         }
 
@@ -90,6 +89,15 @@ public class TimelineManager : MonoBehaviour
             return;
         }        
         tweetsOnTimeline[emptyIndex] = tweet;
+        tweet.SetSelected(true);
+        tweet.SetSelectedIndex(emptyIndex);
+        SelectableTweetsManager.Instance.RemoveTweetFromSelectable(tweet);
+        VisualiseTweets();        
+    }
+
+    public void RemoteTweetFromSlot(int index)
+    {
+        tweetsOnTimeline[index] = new Tweet();
         VisualiseTweets();
     }
 

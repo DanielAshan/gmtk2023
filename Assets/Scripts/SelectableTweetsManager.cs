@@ -8,8 +8,8 @@ public class SelectableTweetsManager : MonoBehaviour
     [SerializeField] Transform  tweetContainerTransform;
     [SerializeField] GameObject tweetPrefab;
     [SerializeField] Texture pfp;
-    private List<Tweet> tweetsToGenerate;
-    private List<Transform> selectableTweets;
+    private List<Tweet> selectableTweets;
+    private List<Transform> tweetVisuals;
     // Start is called before the first frame update
     private void Awake() {
         if ( Instance != null)
@@ -19,36 +19,48 @@ public class SelectableTweetsManager : MonoBehaviour
             return;
         }
         Instance = this;
-        selectableTweets = new List<Transform>();
-        tweetsToGenerate = new List<Tweet>();
-        tweetsToGenerate.Add(new Tweet(pfp, "Todd Howard", "notaliar", "I like to tweet very much"));
-        tweetsToGenerate.Add(new Tweet(pfp, "Todd Howard", "notaliar", "Starfield will have minimum 60 fps on ultra on Celeron #starfield"));
-        tweetsToGenerate.Add(new Tweet(pfp, "Todd Howard", "secondtodd", "Skyrim should run on your bed clock"));
-        tweetsToGenerate.Add(new Tweet(pfp, "Rahid", "otaku_in_closet", "It's not like I like anime bbbbbba-ka!!!! #anime #catgirlsforall"));
-        tweetsToGenerate.Add(new Tweet(pfp, "Shockwellenreiter", "bicyc", "Cycling in the nineties!!! #cycplus"));
+        tweetVisuals = new List<Transform>();
+        selectableTweets = new List<Tweet>();
+        selectableTweets.Add(new Tweet(pfp, "Todd Howard", "notaliar", "I like to tweet very much"));
+        selectableTweets.Add(new Tweet(pfp, "Todd Howard", "notaliar", "Starfield will have minimum 60 fps on ultra on Celeron #starfield"));
+        selectableTweets.Add(new Tweet(pfp, "Todd Howard", "secondtodd", "Skyrim should run on your bed clock"));
+        selectableTweets.Add(new Tweet(pfp, "Rahid", "otaku_in_closet", "It's not like I like anime bbbbbba-ka!!!! #anime #catgirlsforall"));
+        selectableTweets.Add(new Tweet(pfp, "Shockwellenreiter", "bicyc", "Cycling in the nineties!!! #cycplus"));
     }
 
     private void Start() {
-        GenerateSelectableTweets();
+        VisualiseTweets();
     }
-    public void GenerateSelectableTweets()
+    public void VisualiseTweets()
     {
-        foreach(Tweet tweet in tweetsToGenerate)
+        foreach (Transform tweet in tweetVisuals)
+        {
+            Destroy(tweet.gameObject);
+        }
+
+        tweetVisuals = new List<Transform>();
+
+        foreach(Tweet tweet in selectableTweets)
         {
             Transform newObject = Instantiate(tweetPrefab, tweetContainerTransform).transform;
             TweetVisual newTweet = newObject.GetComponent<TweetVisual>();
             newTweet.SetTweet(tweet);
-            selectableTweets.Add(newObject);
+            tweetVisuals.Add(newObject);
         }
     }
 
-    public void AddTweetToSelectable(Transform tweetObject)
+    public void AddTweetToSelectable(Tweet tweet)
     {
-
+        selectableTweets.Add(tweet);
+        TimelineManager.Instance.RemoteTweetFromSlot(tweet.GetSelectedIndex());
+        tweet.SetSelected(false);
+        tweet.SetSelectedIndex(-1);
+        VisualiseTweets();
     }
 
-    public void RemoveTweetFromSelectable(Transform tweetObject)
+    public void RemoveTweetFromSelectable(Tweet tweet)
     {
-
+        selectableTweets.Remove(tweet);
+        VisualiseTweets();
     }
 }

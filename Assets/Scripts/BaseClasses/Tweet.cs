@@ -10,6 +10,8 @@ public class Tweet
     private string tweetText;
     private bool isEmpty = true;
     private bool shouldBeInteractable = true;
+    private bool isSelected = false;
+    private int selectedIndex = -1;
 
 
     public Tweet(Texture profilePicture, string username, string userHandle, string tweetText)
@@ -77,5 +79,25 @@ public class Tweet
     public string GetTweetText()
     {
         return tweetText;
+    }
+
+    public void SetSelected(bool selected)
+    {
+        isSelected = selected;
+    }
+
+    public bool GetSelected()
+    {
+        return isSelected;
+    }
+
+    public void SetSelectedIndex(int index)
+    {
+        this.selectedIndex = index;
+    }
+
+    public int GetSelectedIndex()
+    {
+        return selectedIndex;
     }
 }
