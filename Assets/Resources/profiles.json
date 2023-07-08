@@ -1,0 +1,31 @@
+{
+    "targets": [
+        {
+            "name": "John Starfield",
+            "desc": "Spaceman since 1999, say howdy if you see me",
+            "traits": [
+                "Likes to visit lots of places",
+                "Fond of starships",
+                "Lives Long and Prospers"
+            ]
+        },
+        {
+            "name": "Doom Guy",
+            "desc": "likes cats and yasmin tea, also rips and tears",
+            "traits": [
+                "BFG Division",
+                "Been to both Mars and Hell",
+                "Won Ninja Warrior in 2017"
+            ]
+        },
+        {
+            "name": "Obra Dinn",
+            "desc": "is a ship",
+            "traits": [
+                "An overall good game",
+                "Gets easily lost, even on open spaces",
+                "Fond of krakens and crackers"
+            ]
+        }
+    ]
+}
