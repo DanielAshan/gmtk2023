@@ -40,7 +40,7 @@ public class UserProfile
         string traitList = "";
         foreach (string trait in traits)
         {
-            traitList += $"- {trait} \n";
+            traitList += $"- {trait} \n\n";
         }
 
         return traitList;

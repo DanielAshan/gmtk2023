@@ -28,6 +28,7 @@ public class TimelineManager : MonoBehaviour
         nonInteractableTweets = new List<Tweet>();
         endTurnButton = endTurnGameObject.GetComponent<Button>();
         endTurnButton.interactable = false;
+        endTurnButton.GetComponent<Image>().color = Color.red;
     }
     public void StartTimelineManager()
     {
@@ -43,6 +44,7 @@ public class TimelineManager : MonoBehaviour
         tweetsVisualised = new List<Transform>();
         nonInteractableTweets = new List<Tweet>();
         endTurnButton.interactable = false;
+        endTurnButton.GetComponent<Image>().color = Color.red;
     }
 
     public void SetNonInteractableTweets(List<Tweet> tweets)
@@ -114,6 +116,7 @@ public class TimelineManager : MonoBehaviour
         if ( FindFirstEmptySlot() == -1)
         {
             endTurnButton.interactable = true;
+            endTurnButton.GetComponent<Image>().color = Color.green;
         }
     }
 
@@ -123,6 +126,7 @@ public class TimelineManager : MonoBehaviour
         VisualiseTweets();
 
         endTurnButton.interactable = false;
+        endTurnButton.GetComponent<Image>().color = Color.red;
     }
 
     public int FindFirstEmptySlot()
