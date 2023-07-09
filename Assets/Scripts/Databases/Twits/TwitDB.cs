@@ -60,6 +60,11 @@ public class TwitDB
         throw new System.Exception("GetSpecificTwit couldn't find requested twit.");
     }
 
+    public List<Twit> GetAllTwits()
+    {
+        return shuffledTwits;
+    }
+
     public Twit DequeueTwitFromTwits()
     {
         Twit poppedTwit = PopAtIndex(shuffledTwits, 0);
