@@ -21,7 +21,7 @@
             "triggered_traits":[
                 "Has fears of being surveillanced by the government.",
                 "Commutes to work for two hours each day.",
-                "Quotes Adam Smith often, just to highlight his economic background."
+                "Quotes Adam Smith often, just to highlight economic background."
             ] 
         },
         {
@@ -43,21 +43,109 @@
             "handle": "do_vio1337",
             "agenda_score": 2,
             "triggered_traits":[
-                "Quotes Adam Smith often, just to highlight his economic background.",
+                "Quotes Adam Smith often, just to highlight economic background.",
                 "Commutes to work for two hours each day.",
                 "Tech-gizmo obsessed geek"
             ] 
         },
         {
-            "content": "woot found this awesome web3.0 site that aggregates lulcatz, it's called cattit",
+            "content": "woot found this awesome web3.0 site that aggregates lulcatz, it's called cattit :3",
             "profile_pic": "sample_avatar",
             "username": "Rosetta Preston",
             "handle": "burnedRose666",
             "agenda_score": 0,
             "triggered_traits":[
                 "Tech-gizmo obsessed geek",
+                "Has three cats that are treated like a part of the family.",
+                "Spends six hours each day on social media browsing memes."
+            ] 
+        },
+        {
+            "content": "Heard there is a new $GameDev studio opening in our area soon, prolly escaping taxes here lmao",
+            "profile_pic": "sample_avatar",
+            "username": "Okan Euikori",
+            "handle": "okant",
+            "agenda_score": 1,
+            "triggered_traits":[
+                "Tech-gizmo obsessed geek",
+                "Despises working 9 to 5, wishes they'd become a game developer.",
+                "Quotes Adam Smith often, just to highlight economic background."
+            ] 
+        },
+        {
+            "content": "Bought this new eco-friendly paints for $aerograph for my minis, can't wait to test it out on my space dwarves later $expensive $hobby",
+            "profile_pic": "sample_avatar",
+            "username": "Martonus Axeman",
+            "handle": "martonus41st",
+            "agenda_score": 0,
+            "triggered_traits":[
+                "Tech-gizmo obsessed geek",
+                "Proudly paints miniatures in spare time.",
+                "Vocal member of the Ecologist NGO."
+            ] 
+        },
+        {
+            "content": "omg my crystal was right, i've signed up for this community-organised art course and got a spot instantly, will post some paintings later fo sho, xoxo",
+            "profile_pic": "sample_avatar",
+            "username": "Maxwell Bancroft",
+            "handle": "starmax1010",
+            "agenda_score": 0,
+            "triggered_traits":[
                 "Commutes to work for two hours each day.",
-                "Tech-gizmo obsessed geek"
+                "Proudly paints miniatures in spare time.",
+                "Makes decisions in life based on astrology."
+            ] 
+        },
+        {
+            "content": "herd on birdle that our $officials want to close our local animal shelter, made a petition so pls sign it if u have $heart for $pupperinos - link below",
+            "profile_pic": "sample_avatar",
+            "username": "Darius Alegre",
+            "handle": "Pprimefalcon",
+            "agenda_score": 2,
+            "triggered_traits":[
+                "Has three cats that are treated like a part of the family.",
+                "Spends six hours each day on social media browsing memes.",
+            ] 
+        },
+        {
+            "content": "wow just today i learned that Drake Steward from $EC used to visit our horoscopist when he was younger - so cool :O $fate $EC2032",
+            "profile_pic": "sample_avatar",
+            "username": "Raven Arleth",
+            "handle": "soblackraven",
+            "agenda_score": 2,
+            "triggered_traits":[
+                "Makes decisions in life based on astrology."
+            ] 
+        },
+        {
+            "content": "Due to the ninth consecutive day of a very bad air quality in the city, the tram tickets cost is reduced by 30% - leave your car at home and $commutewithus",
+            "profile_pic": "sample_avatar",
+            "username": "CityTramOfficial",
+            "handle": "CityTramOfficial",
+            "agenda_score": 2,
+            "triggered_traits":[
+                "Commutes to work for two hours each day.",
+                "Spends a lot of time online browsing sports cars."
+            ] 
+        },
+        {
+            "content": "senator brandy laux is organising the bi-yearly Forest Run next month, come join us while we $dust those leaves with our $speed!",
+            "profile_pic": "sample_avatar",
+            "username": "Piotr Jackstadt",
+            "handle": "localdruid",
+            "agenda_score": 2,
+            "triggered_traits":[
+                "Loves hiking for hours with headphones on."
+            ] 
+        },
+        {
+            "content": "senator brandy laux is organising the bi-yearly Forest Run next month, come join us while we $dust those leaves with our $speed!",
+            "profile_pic": "sample_avatar",
+            "username": "Piotr Jackstadt",
+            "handle": "your_localdruid",
+            "agenda_score": 2,
+            "triggered_traits":[
+                "Loves hiking for hours with headphones on."
             ] 
         }
     ]
