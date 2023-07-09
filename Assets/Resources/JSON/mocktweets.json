@@ -35,6 +35,36 @@
             "name": "Luke Groundwalker",
             "handle": "sandlover",
             "content": "I like to tweet very much"
+        },
+        {
+            "avatarResourcePath": "sample_avatar",
+            "name": "Bames Nond",
+            "handle": "agent700",
+            "content": "Can someone call the bondulance?! $stron $agent $forHerMajesty"
+        },
+        {
+            "avatarResourcePath": "sample_avatar",
+            "name": "The Council",
+            "handle": "councilOfficial",
+            "content": "Welcome @sandlover to the coucil! But we do not ground you rank of he master. $justCoucilThings"
+        },
+        {
+            "avatarResourcePath": "sample_avatar",
+            "name": "CuriousGuy",
+            "handle": "iAMaROBOT",
+            "content": "I just met some green people! Cannot believe they are here with me $mars $redPlanet $allAlone"
+        },
+        {
+            "avatarResourcePath": "sample_avatar",
+            "name": "Very Smart Man",
+            "handle": "freeThinker",
+            "content": "The banana lobby tries to break our spines! Eat only straight banana, not curved ones! $watchOut $startThinking"
+        },
+        {
+            "avatarResourcePath": "sample_avatar",
+            "name": "Mark Green",
+            "handle": "gameDevWorkshop",
+            "content": "Maybe I should make a competition for game developers? $GDWJam2023 "
         }
     ]
 }
