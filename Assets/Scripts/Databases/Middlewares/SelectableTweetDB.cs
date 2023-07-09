@@ -120,4 +120,22 @@ public class SelectableTweetDB
             Debug.Log(tweet.GetTraits());
         }
     }
+
+    public Tweet GetSpecificTweet (string matchingTraitString, int matchingScoreVal = 2)
+    {
+        Debug.Log("called getspecifictwit");
+
+        foreach (Tweet tweet in tweets)
+        {
+            foreach (string trait in tweet.GetTraits())
+            {
+                if (tweet.GetAgendaScore() == matchingScoreVal && 
+                    trait.Contains(matchingTraitString))
+                    {
+                        return tweet;
+                    }
+            }
+        }
+        throw new System.Exception("GetSpecificTwit couldn't find requested twit.");
+    }
 }

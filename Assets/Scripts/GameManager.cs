@@ -6,14 +6,16 @@ using System;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set;}
+    [SerializeField] Transform endScreen;
     public string pfpResourcePath = "sample_avatar";
-
     private int turnCounter = 0;
     private int targetCounter = 0;
 
     private UserProfile currentTarget;
     private UserProfileDB usersDB;
     private TimelineTweetDB timelineTweetDB;
+    private SelectableTweetDB selectableTweetDB;
+    private TraitDB traitDB;
     
     private List<Tweet> bangerTweets;
     private List<UserAgendaCompletion> metTargets;
@@ -36,8 +38,12 @@ public class GameManager : MonoBehaviour
         currentTarget = new UserProfile();
         usersDB = new UserProfileDB();
         timelineTweetDB = new TimelineTweetDB();
+        selectableTweetDB = new SelectableTweetDB();
+        traitDB = new TraitDB();
         usersDB.StartDB();
         timelineTweetDB.StartDB();
+        selectableTweetDB.StartDB();
+        traitDB.StartDB();
 
         bangerTweets = new List<Tweet>();
         metTargets = new List<UserAgendaCompletion>();
@@ -61,13 +67,18 @@ public class GameManager : MonoBehaviour
         
         // Prepare new selectable tweets;
         List<Tweet> selectableTweets = new List<Tweet>();
-        selectableTweets.Add(new Tweet(pfpResourcePath, "Luke Groundwalker", "sandlover", "I like to tweet very much", 2));
-        selectableTweets.Add(new Tweet(pfpResourcePath, "Indiana Tomes", "averagewhipenjoyer", "Starfield will have minimum 60 fps on ultra on Celeron #starfield", 0));
-        selectableTweets.Add(new Tweet(pfpResourcePath, "Gerwant from Poland", "monsterhunter", "Skyrim should run on your bed clock", 0));
+        // selectableTweets.Add(new Tweet(pfpResourcePath, "Luke Groundwalker", "sandlover", "I like to tweet very much", 2));
+        // selectableTweets.Add(new Tweet(pfpResourcePath, "Indiana Tomes", "averagewhipenjoyer", "Starfield will have minimum 60 fps on ultra on Celeron #starfield", 0));
+        // selectableTweets.Add(new Tweet(pfpResourcePath, "Gerwant from Poland", "monsterhunter", "Skyrim should run on your bed clock", 0));
         // selectableTweets.Add(new Tweet(pfp, "Rahid", "otaku_in_closet", "It's not like I like anime bbbbbba-ka!!!! #anime #catgirlsforall"));
         // selectableTweets.Add(new Tweet(pfp, "Shockwellenreiter", "bicyc", "Cycling in the nineties!!! #cycplus"));
-        selectableTweets.Add(new Tweet(pfpResourcePath, "Indiana Tomes", "averagewhipenjoyer", "Starfield will have minimum 60 fps on ultra on Celeron #starfield", 0));
-        selectableTweets.Add(new Tweet(pfpResourcePath, "Gerwant from Poland", "monsterhunter", "Skyrim should run on your bed clock", 1));
+        // selectableTweets.Add(new Tweet(pfpResourcePath, "Indiana Tomes", "averagewhipenjoyer", "Starfield will have minimum 60 fps on ultra on Celeron #starfield", 0));
+        // selectableTweets.Add(new Tweet(pfpResourcePath, "Gerwant from Poland", "monsterhunter", "Skyrim should run on your bed clock", 1));
+        selectableTweets.Add(selectableTweetDB.GetSpecificTweet(currentTarget.GetTraits()[0]));
+        foreach(Tweet tweet in selectableTweetDB.GetNumberOfSelectableTweets(4))
+        {
+            selectableTweets.Add(tweet);
+        }
 
         SelectableTweetsManager.Instance.StartSelectableTweetsManager(selectableTweets);
 
@@ -86,10 +97,8 @@ public class GameManager : MonoBehaviour
     {
         // Get new target from database
         currentTarget = usersDB.PopUserProfile();
-        currentTarget.traits = new string[] {
-            "Likes to visit lots of places", 
-            "Fond of starships", 
-            "Lives Long and Prospers"};
+        string[] traitsForTarget = traitDB.GetNumOfTraits(3);
+        currentTarget.traits = traitsForTarget;
 
         TargetInformationUI.Instance.SetTargetUser(currentTarget);
         
@@ -219,16 +228,17 @@ public class GameManager : MonoBehaviour
             }
         }
 
+        EndScreenManager end = endScreen.GetComponent<EndScreenManager>();
         if (countWins >=2)
         {
-            Debug.Log("GAME WON");
-            Debug.Log("YOU DID WELL MISTER ALGORITHM");
+            end.SetData(bangerTweets, metTargets, true);
         }
         else
         {
-            Debug.Log("GAME OVER");
-            Debug.Log("YOU ARE BAD ALGORITHM");
+            end.SetData(bangerTweets, metTargets, true);
         }
+
+        end.SetEnabled(true);
         
     }
 }
