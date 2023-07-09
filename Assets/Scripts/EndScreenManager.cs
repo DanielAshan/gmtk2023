@@ -40,7 +40,7 @@ public class EndScreenManager : MonoBehaviour
         else
         {
             resultText.text = "UUUU! GAME OVER!";
-            summaryText.text = "Not good. You are probably going to training again. But maybe you had some banger tweets at least?";
+            summaryText.text = "Not good. You probably need to go and train again. But maybe you had some banger tweets at least?";
         }
     }
     public void SetEnabled(bool value)

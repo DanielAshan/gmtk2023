@@ -2859,29 +2859,29 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '- Year is 2031. Evil Corporations is ruling now and figths to be re-elected
-    in the next elections!
+  m_text: '- Year is 2031. Evil Corporation is ruling now and fights to be re-elected
+    in the next vote!
 
-    - Your job is to influence targets. Your agenda is
-    to help Evil Corporation win the presidential election!
+    - Your job is to influence targets. Your agenda is to
+    help Evil Corporation win the presidential election!
 
-    - You do that by
-    selecting birdLEs on the left and placing them on the timeline (click on birdLE).
+    - You do that by selecting
+    birdLEs on the left and placing them on the timeline (click on birdLE).
 
     -
     You need to think what birdLE will be interesting for a target.
 
-    - Look at
-    your target traits and try to find out what birdLE may be entertaining for them.
+    - Look
+    at your target traits and try to find out what birdLE may be entertaining for
+    them.
+
+    - But also remember that birdLE should try to influence target.
 
     -
-    But also remember that birdLE should try to influence target.
+    Be careful! If you take to long to decide your target may get bored!
 
-    - Be careful!
-    If you take to long to decide your target may get bored!
-
-    - Don''t let your
-    target lose engagement!'
+    -
+    Don''t let your target lose engagement!'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e53796de2ac0a3b4ea65394e409b92e5, type: 2}
   m_sharedMaterial: {fileID: 6592144393329638149, guid: e53796de2ac0a3b4ea65394e409b92e5, type: 2}
