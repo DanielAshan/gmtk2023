@@ -104,7 +104,7 @@
             "agenda_score": 2,
             "triggered_traits":[
                 "Has three cats that are treated like a part of the family.",
-                "Spends six hours each day on social media browsing memes.",
+                "Spends six hours each day on social media browsing memes."
             ] 
         },
         {
@@ -139,13 +139,25 @@
             ] 
         },
         {
-            "content": "senator brandy laux is organising the bi-yearly Forest Run next month, come join us while we $dust those leaves with our $speed!",
+            "content": "Got enlisted in the EC startup space initiative, gonna send some $humankerbals to space woohoo",
             "profile_pic": "sample_avatar",
-            "username": "Piotr Jackstadt",
-            "handle": "your_localdruid",
+            "username": "Sabine Croft",
+            "handle": "doomgirl_from_venus",
             "agenda_score": 2,
             "triggered_traits":[
-                "Loves hiking for hours with headphones on."
+                "Tech-gizmo obsessed geek",
+                "Makes decisions in life based on astrology."
+            ] 
+        },
+        {
+            "content": "ordering a new office chair, my back hurts like hell from the one i'm currently using. are crappy chairs some kind of Big Furniture conspiracy??",
+            "profile_pic": "sample_avatar",
+            "username": "Raphael Costeau",
+            "handle": "true_detective01",
+            "agenda_score": 0,
+            "triggered_traits":[
+                "Has fears of being surveillanced by the government.",
+                "Quotes Adam Smith often, just to highlight economic background."
             ] 
         }
     ]
