@@ -8,7 +8,7 @@
             "agenda_score": 0,
             "triggered_traits":[
                 "pierwszy trait",
-                "drugi trait",
+                "Robi dziury w butach do wspinaczki po to, zeby miec powod do kupna nowych",
                 "trzeci trait"
             ] 
         },
@@ -19,8 +19,8 @@
             "handle": "ciupaga",
             "agenda_score": 2,
             "triggered_traits":[
-                "first trait",
-                "second trait",
+                "Oglada OnePiece w sekrecie",
+                "Czesto gra w CSa na kierownicy",
                 "third trait"
             ] 
         },
@@ -32,7 +32,7 @@
             "agenda_score": 1,
             "triggered_traits":[
                 "pierwszy trait",
-                "drugi trait",
+                "Kupil trzy kolekcjonerki Zeldy",
                 "trzeci trait"
             ] 
         },
@@ -43,9 +43,9 @@
             "handle": "ciupaga",
             "agenda_score": 1,
             "triggered_traits":[
-                "pierwszy trait",
+                "Pewnego razu zasnal na imprezie i obudzil sie na statku do Vvardenfell",
                 "drugi trait",
-                "trzeci trait"
+                "W ramach hobby biega po szaszlyku"
             ] 
         },
         {
@@ -56,7 +56,7 @@
             "agenda_score": 1,
             "triggered_traits":[
                 "pierwszy trait",
-                "drugi trait",
+                "Wypchnal na repo Todda Howarda",
                 "trzeci trait"
             ] 
         }
