@@ -6,8 +6,8 @@ using System;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set;}
+    [SerializeField] Transform endScreen;
     public string pfpResourcePath = "sample_avatar";
-
     private int turnCounter = 0;
     private int targetCounter = 0;
 
@@ -219,16 +219,17 @@ public class GameManager : MonoBehaviour
             }
         }
 
+        EndScreenManager end = endScreen.GetComponent<EndScreenManager>();
         if (countWins >=2)
         {
-            Debug.Log("GAME WON");
-            Debug.Log("YOU DID WELL MISTER ALGORITHM");
+            end.SetData(bangerTweets, metTargets, true);
         }
         else
         {
-            Debug.Log("GAME OVER");
-            Debug.Log("YOU ARE BAD ALGORITHM");
+            end.SetData(bangerTweets, metTargets, true);
         }
+
+        end.SetEnabled(true);
         
     }
 }
