@@ -31,6 +31,21 @@ public class EndScreenManager : MonoBehaviour
     {
         bangerTweetsVisuals = new List<Transform>();
         metTargetsVisuals = new List<Transform>();
+
+        if (isGameWon)
+        {
+            resultText.text = "You won!";
+            summaryText.text = "Great! You are a good algorithm! There is a bright future in front of you! Here are the people you met and the banger tweets you sent to them";
+        }
+        else
+        {
+            resultText.text = "UUUU! GAME OVER!";
+            summaryText.text = "Not good. You are probably going to training again. But maybe you had some banger tweets at least?";
+        }
+    }
+    public void SetEnabled(bool value)
+    {
+        gameObject.SetActive(value);
         int index = 0;
         foreach (Tweet tweet in bangerTweets )
         {
@@ -54,20 +69,5 @@ public class EndScreenManager : MonoBehaviour
             newUser.SetInfluenced(user.influenced);
             metTargetsVisuals.Add(newObject);
         }
-
-        if (isGameWon)
-        {
-            resultText.text = "You won!";
-            summaryText.text = "Great! You are a good algorithm! There is a bright future in front of you! Here are the people you met and the banger tweets you sent to them";
-        }
-        else
-        {
-            resultText.text = "UUUU! GAME OVER!";
-            summaryText.text = "Not good. You are probably going to training again. But maybe you had some banger tweets at least?";
-        }
-    }
-    public void SetEnabled(bool value)
-    {
-        gameObject.SetActive(value);
     }
 }

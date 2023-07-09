@@ -42,12 +42,9 @@ public class TweetVisual : MonoBehaviour
         UpdateTweetVisual();
     }  
 
-    public void SetBangerTweet(Tweet tweet)
+    public void SetBangerTweet(Tweet bangerTweet)
     {
-        this.tweet = tweet;
-        Debug.Log($"SetBangerTweet - {tweet.GetUserName()}");
-        userName.text = tweet.GetUserName();
-        Debug.Log("SetBangerTweet - updating visual");
+        tweet = bangerTweet;
         button.interactable = false;
         UpdateTweetVisual();
     }    
