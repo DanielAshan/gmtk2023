@@ -26,7 +26,7 @@ public class GameManager : MonoBehaviour
 
     private const int MAX_AGENDA_SCORE = 6;
     private const int MIN_AGENDA_SCORE = 6;
-    private const int MAX_BOREDOM_LEVEL = 10;
+    private const int MAX_BOREDOM_LEVEL = 15;
     private const int MIN_BOREDOM_LEVEL = 0;
     private void Awake() {
         if ( Instance != null)
@@ -51,7 +51,7 @@ public class GameManager : MonoBehaviour
     }
 
     private void Start() {
-        
+        tutorialScreen.gameObject.SetActive(true);
     }
 
     public void StartGame()
