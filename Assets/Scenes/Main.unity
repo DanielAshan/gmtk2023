@@ -1831,9 +1831,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetJsonFile: {fileID: 4900000, guid: 6a844f9499e02334bb87088251e048f8, type: 3}
-  twitsJsonFile: {fileID: 0}
+  twitsJsonFile: {fileID: 4900000, guid: ba7742bc2d01050449f84489aac2238e, type: 3}
   mockTweetsJsonFile: {fileID: 4900000, guid: 4bd687282e858c04f929eb900e548280, type: 3}
-  traitsJsonFile: {fileID: 0}
+  traitsJsonFile: {fileID: 4900000, guid: cc8b4db6325e25f4c81fd6a2518c9639, type: 3}
 --- !u!4 &940225470
 Transform:
   m_ObjectHideFlags: 0

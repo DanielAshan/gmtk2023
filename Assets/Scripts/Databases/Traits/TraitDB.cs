@@ -34,16 +34,17 @@ public class TraitDB
         return shuffledTraits;
     }
 
-    public List<Trait> GetNumOfTraits(int numOfTraits)
+    public string[] GetNumOfTraits(int numOfTraits)
     {
         List<Trait> listOfRequestedTraits = new List<Trait>();
-
+        string[] returnList = new string[numOfTraits];
         for (int i = 0; i < numOfTraits; i++)
         {
             listOfRequestedTraits.Add(shuffledTraits[i]);
+            returnList[i] = shuffledTraits[i].content;
         }
 
-        return listOfRequestedTraits;
+        return returnList;
     }
     
 }

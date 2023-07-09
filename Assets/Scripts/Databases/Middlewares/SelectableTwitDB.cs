@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SelectableTwitDB
+public class SelectableTweetDB
 {
     private List<Tweet> tweets;
 
@@ -42,7 +42,7 @@ public class SelectableTwitDB
         return poppedTweet;
     }
 
-    public List<Tweet> GetNumberOfTimelineTweets (int number)
+    public List<Tweet> GetNumberOfSelectableTweets (int number)
     {
         List<Tweet> list = new List<Tweet>();
         if (tweets.Count < number)
@@ -63,7 +63,7 @@ public class SelectableTwitDB
         return list;
     }
 
-    public List<Tweet> GetAllTimelineTweets()
+    public List<Tweet> GetAllSelectableTweets()
     {
         List<Tweet> list = new List<Tweet>();
         foreach (Tweet tweet in tweets)
@@ -88,12 +88,30 @@ public class SelectableTwitDB
 
     public void DebugLogAllTweets()
     {
-        List<Tweet> list = GetAllTimelineTweets();
+        List<Tweet> list = GetAllSelectableTweets();
 
         foreach (Tweet tweet in list)
         {
             Debug.Log(tweet.GetUserName());
             Debug.Log(tweet.GetTraits());
         }
+    }
+
+    public Tweet GetSpecificTweet (string matchingTraitString, int matchingScoreVal = 2)
+    {
+        Debug.Log("called getspecifictwit");
+
+        foreach (Tweet tweet in tweets)
+        {
+            foreach (string trait in tweet.GetTraits())
+            {
+                if (tweet.GetAgendaScore() == matchingScoreVal && 
+                    trait.Contains(matchingTraitString))
+                    {
+                        return tweet;
+                    }
+            }
+        }
+        throw new System.Exception("GetSpecificTwit couldn't find requested twit.");
     }
 }
