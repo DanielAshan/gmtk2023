@@ -34,12 +34,9 @@ public class EndScreenManager : MonoBehaviour
         int index = 0;
         foreach (Tweet tweet in bangerTweets )
         {
-            tweet.SetShouldBeInteractable(false);
-            Debug.Log($"Tweet - {tweet.GetTweetText()}");
             Transform newObject = Instantiate(tweetPrefab, bangerTweetsListTransform).transform;
-            TweetVisual newTweet = newObject.GetComponent<TweetVisual>();
-            newTweet.SetTweet(tweet);
-            // newTweet.DisableTweet();
+            TweetVisual newTweetVisual = newObject.GetComponent<TweetVisual>();
+            newTweetVisual.SetBangerTweet(tweet); 
             bangerTweetsVisuals.Add(newObject);
             index++;
             if (index == 3)

@@ -125,6 +125,7 @@ public class GameManager : MonoBehaviour
             default:
                 break;
         }
+        TargetInformationUI.Instance.UpdateBars(agendaScore, boredomLevel);
     }
     public void EndTurn()
     {
@@ -221,6 +222,7 @@ public class GameManager : MonoBehaviour
         if (targetCounter == 3)
         {
             EndGame();
+            return;
         }
         // Else start new round
         StartRound();

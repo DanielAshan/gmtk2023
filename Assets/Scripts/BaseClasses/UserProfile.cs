@@ -17,7 +17,7 @@ public class UserProfile
     {
         avatarResourcePath = avatar;
         userName = name;
-        userHandle = handle;
+        userHandle = "@" + handle;
         description = desc;
     }
 

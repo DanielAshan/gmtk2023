@@ -11,13 +11,13 @@ public class TweetVisual : MonoBehaviour
     [SerializeField] private TextMeshProUGUI userName;
     [SerializeField] private TextMeshProUGUI userHandle;
     [SerializeField] private TextMeshProUGUI tweetText;
+    [SerializeField] private Button button;
 
     private Tweet tweet;
-    private Button button;
+    
     private void Awake() {
         tweet = new Tweet();
         UpdateTweetVisual();
-        this.button = GetComponent<Button>();
         button.interactable = tweet.GetShouldBeInteractable();
         button.onClick.AddListener(HandleButtonOnClick);
     }
@@ -39,6 +39,16 @@ public class TweetVisual : MonoBehaviour
     public void SetTweet(Tweet tweet)
     {
         this.tweet = tweet;
+        UpdateTweetVisual();
+    }  
+
+    public void SetBangerTweet(Tweet tweet)
+    {
+        this.tweet = tweet;
+        Debug.Log($"SetBangerTweet - {tweet.GetUserName()}");
+        userName.text = tweet.GetUserName();
+        Debug.Log("SetBangerTweet - updating visual");
+        button.interactable = false;
         UpdateTweetVisual();
     }    
 
