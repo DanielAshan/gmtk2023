@@ -431,6 +431,51 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &440670941
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 440670942}
+  - component: {fileID: 440670943}
+  m_Layer: 0
+  m_Name: TraitDB
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &440670942
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 440670941}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 488.5014, y: 257.39764, z: -20.769356}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &440670943
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 440670941}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6a298be4191267409581eb361ade3ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  jloader: {fileID: 1399198394}
 --- !u!1 &467037478
 GameObject:
   m_ObjectHideFlags: 0
@@ -1143,7 +1188,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 592720599}
-  - component: {fileID: 592720598}
   m_Layer: 0
   m_Name: MockTweetDB
   m_TagString: Untagged
@@ -1151,19 +1195,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &592720598
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 592720597}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6c0b3adea3187f047a3ea3bc47334876, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  jloader: {fileID: 1399198394}
 --- !u!4 &592720599
 Transform:
   m_ObjectHideFlags: 0
@@ -1793,7 +1824,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c7d1bcc1f3a8a94eb1de02f44abdf9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  twitDB: {fileID: 1110453346}
+  traitDB: {fileID: 440670943}
 --- !u!4 &713331903
 Transform:
   m_ObjectHideFlags: 0
@@ -2424,7 +2455,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1110453347}
-  - component: {fileID: 1110453346}
   m_Layer: 0
   m_Name: TwitDB
   m_TagString: Untagged
@@ -2432,19 +2462,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1110453346
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1110453345}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 76228a1353a1fd84cb0930890d9cd0e8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  jloader: {fileID: 1399198394}
 --- !u!4 &1110453347
 Transform:
   m_ObjectHideFlags: 0
@@ -2469,7 +2486,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1116211446}
-  - component: {fileID: 1116211445}
   m_Layer: 0
   m_Name: TargetDB
   m_TagString: Untagged
@@ -2477,19 +2493,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1116211445
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1116211444}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: db0d97e43787eed43bd2a8774b219924, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  jloader: {fileID: 1399198394}
 --- !u!4 &1116211446
 Transform:
   m_ObjectHideFlags: 0
@@ -2641,6 +2644,7 @@ MonoBehaviour:
   targetJsonFile: {fileID: 4900000, guid: 6a844f9499e02334bb87088251e048f8, type: 3}
   twitsJsonFile: {fileID: 4900000, guid: ba7742bc2d01050449f84489aac2238e, type: 3}
   mockTweetsJsonFile: {fileID: 4900000, guid: 4bd687282e858c04f929eb900e548280, type: 3}
+  traitsJsonFile: {fileID: 4900000, guid: cc8b4db6325e25f4c81fd6a2518c9639, type: 3}
 --- !u!4 &1399198395
 Transform:
   m_ObjectHideFlags: 0
