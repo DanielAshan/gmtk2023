@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set;}
     [SerializeField] Transform endScreen;
+    [SerializeField] Transform tutorialScreen;
     public string pfpResourcePath = "sample_avatar";
     private int turnCounter = 0;
     private int targetCounter = 0;
@@ -50,8 +51,15 @@ public class GameManager : MonoBehaviour
     }
 
     private void Start() {
+        
+    }
+
+    public void StartGame()
+    {
+        tutorialScreen.gameObject.SetActive(false);
         StartRound();
     }
+
     public void StartRound()
     {
         // Setup new target

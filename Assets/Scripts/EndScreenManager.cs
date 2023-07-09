@@ -13,7 +13,9 @@ public class EndScreenManager : MonoBehaviour
     [SerializeField] TextMeshProUGUI resultText;
     [SerializeField] TextMeshProUGUI summaryText;
     private List<Tweet> bangerTweets;
+    private List<Transform> bangerTweetsVisuals;
     private List<UserAgendaCompletion> metTargets;
+    private List<Transform> metTargetsVisuals;
     private bool isGameWon = false;
     
 
@@ -27,9 +29,23 @@ public class EndScreenManager : MonoBehaviour
 
     public void LoadEndScreen()
     {
+        bangerTweetsVisuals = new List<Transform>();
+        metTargetsVisuals = new List<Transform>();
+        int index = 0;
         foreach (Tweet tweet in bangerTweets )
         {
-            // Instaniate banger tweets
+            tweet.SetShouldBeInteractable(false);
+            Debug.Log($"Tweet - {tweet.GetTweetText()}");
+            Transform newObject = Instantiate(tweetPrefab, bangerTweetsListTransform).transform;
+            TweetVisual newTweet = newObject.GetComponent<TweetVisual>();
+            newTweet.SetTweet(tweet);
+            // newTweet.DisableTweet();
+            bangerTweetsVisuals.Add(newObject);
+            index++;
+            if (index == 3)
+            {
+                break;
+            }
         }
 
         foreach (UserAgendaCompletion user in metTargets )
