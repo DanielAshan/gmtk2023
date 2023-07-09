@@ -3,15 +3,20 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using System;
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set;}
     [SerializeField] Transform endScreen;
     [SerializeField] Transform tutorialScreen;
+
+    [SerializeField] TextMeshProUGUI turnCounterVisual;
+
+    [SerializeField] TextMeshProUGUI roundCounterVisual;
     public string pfpResourcePath = "sample_avatar";
-    private int turnCounter = 0;
-    private int targetCounter = 0;
+    private int turnCounter = 1;
+    private int targetCounter = 1;
 
     private UserProfile currentTarget;
     private UserProfileDB usersDB;
@@ -21,6 +26,8 @@ public class GameManager : MonoBehaviour
     
     private List<Tweet> bangerTweets;
     private List<UserAgendaCompletion> metTargets;
+
+
 
     private int agendaScore = 0;
     private int boredomLevel = 0;
@@ -67,10 +74,12 @@ public class GameManager : MonoBehaviour
         SetNewTarget();
 
         // Reset turn counter
-        turnCounter = 0;
+        turnCounter = 1;
         // Start turn -> load tweets to use
         StartTurn();
+        roundCounterVisual.text = "TARGET INFORMATION \n ROUND " +  targetCounter.ToString() + "/3";
         Debug.Log("New round started");
+
     }
     public void StartTurn()
     {
@@ -95,6 +104,9 @@ public class GameManager : MonoBehaviour
 
         // Start timeline manager
         TimelineManager.Instance.StartTimelineManager();
+
+        // Update round counter
+        turnCounterVisual.text = "TARGET TIMELINE - TURN " +  turnCounter.ToString() + "/3";
     }
 
     public void SetNewTarget()
@@ -110,16 +122,16 @@ public class GameManager : MonoBehaviour
         agendaScore = 0;
         switch (targetCounter)
         {
-            case 0:
+            case 1:
                 boredomLevel = 0;
                 break;
 
-            case 1:
-                boredomLevel = 2;
+            case 2:
+                boredomLevel = 3;
                 break;
 
-            case 2:
-                boredomLevel = 4;    
+            case 3:
+                boredomLevel = 6;    
                 break;
 
             default:
@@ -192,7 +204,7 @@ public class GameManager : MonoBehaviour
         Debug.Log($"Turn counter: {turnCounter}");
 
         
-        if (turnCounter == 3)
+        if (turnCounter == 4)
         {
             EndRound();
         }
@@ -219,7 +231,7 @@ public class GameManager : MonoBehaviour
         }
 
         // If some stuff like enough targets done -> end game 
-        if (targetCounter == 3)
+        if (targetCounter == 4)
         {
             EndGame();
             return;
@@ -242,13 +254,13 @@ public class GameManager : MonoBehaviour
         }
 
         EndScreenManager end = endScreen.GetComponent<EndScreenManager>();
-        if (countWins >=2)
+        if (countWins >= 2)
         {
             end.SetData(bangerTweets, metTargets, true);
         }
         else
         {
-            end.SetData(bangerTweets, metTargets, true);
+            end.SetData(bangerTweets, metTargets, false);
         }
 
         end.SetEnabled(true);

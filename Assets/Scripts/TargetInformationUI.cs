@@ -15,11 +15,11 @@ public class TargetInformationUI : MonoBehaviour
     [SerializeField]
     private TextMeshProUGUI traitsText;
 
-    [SerializeField]
-    private Slider agendaSlider;
+    [SerializeField] private Slider agendaSlider;
+    [SerializeField] private TextMeshProUGUI agendaCounter;
 
-    [SerializeField]
-    private Slider boredomSlider;
+    [SerializeField] private Slider boredomSlider;
+    [SerializeField] private TextMeshProUGUI boredomCounter;
 
     [SerializeField] public RawImage avatar;
 
@@ -57,7 +57,9 @@ public class TargetInformationUI : MonoBehaviour
     public void UpdateBars(int agendaScore, int boredomLevel)
     {
         agendaSlider.value = agendaScore;
+        agendaCounter.text  = agendaScore.ToString() + "/6";
         boredomSlider.value = boredomLevel;
+        boredomCounter.text  = boredomLevel.ToString() + "/15";
     }
     
 }
