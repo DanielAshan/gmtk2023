@@ -159,6 +159,30 @@
                 "Has fears of being surveillanced by the government.",
                 "Quotes Adam Smith often, just to highlight economic background."
             ] 
-        }
+        },
+        {
+            "content": "vote $ec if you want to sell nft of your favorite $castlesandtoads figurines",
+            "profile_pic": "sample_avatar",
+            "username": "Rory Morgan",
+            "handle": "roryMercury",
+            "agenda_score": 1,
+            "triggered_traits":[
+                "Proudly paints miniatures in spare time.",
+                "Quotes Adam Smith often, just to highlight his economic background.",
+                "Tech-gizmo obsessed geek"
+            ] 
+        },
+        {
+            "content": "My spagthetti is talking to me? What do I do?!? $shadowElite $stopGMO",
+            "profile_pic": "sample_avatar",
+            "username": "Rory Morgan",
+            "handle": "roryMercury",
+            "agenda_score": 1,
+            "triggered_traits":[
+                "Vocal member of the Ecologist NGO.",
+                "Has fears of being surveillanced by the government.",
+                "Makes decisions in life based on astrology."
+            ] 
+        }                
     ]
 }
