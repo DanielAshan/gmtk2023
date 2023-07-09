@@ -4,19 +4,19 @@
             "name": "John Starfield",
             "handle": "masseffectfan00",
             "desc": "Spaceman since 1999, say howdy if you see me",
-            "avatarResourcePath": "sample_avatar"
+            "avatarResourcePath": "honey-jar"
         },
         {
             "name": "Doom Guy",
             "handle": "bigfunkyguy_mars",
             "desc": "likes cats and yasmin tea, also rips and tears",
-            "avatarResourcePath": "sample_avatar"
+            "avatarResourcePath": "goat"
         },
         {
             "name": "Obra Dinn",
             "handle": "TimeMachineX",
             "desc": "is a ship",
-            "avatarResourcePath": "sample_avatar"
+            "avatarResourcePath": "axolotl"
         }
     ]
 }
