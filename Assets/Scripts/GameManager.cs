@@ -26,7 +26,7 @@ public class GameManager : MonoBehaviour
     private int boredomLevel = 0;
 
     private const int MAX_AGENDA_SCORE = 6;
-    private const int MIN_AGENDA_SCORE = 6;
+    private const int MIN_AGENDA_SCORE = 0;
     private const int MAX_BOREDOM_LEVEL = 15;
     private const int MIN_BOREDOM_LEVEL = 0;
     private void Awake() {
@@ -78,8 +78,8 @@ public class GameManager : MonoBehaviour
         // Prepare new selectable tweets;
         List<Tweet> selectableTweets = new List<Tweet>();
 
-        selectableTweets.Add(selectableTweetDB.GetSpecificTweet(currentTarget.GetTraits()));
-        foreach(Tweet tweet in selectableTweetDB.GetNumberOfSelectableTweets(4))
+        // selectableTweets.Add(selectableTweetDB.GetSpecificTweet(currentTarget.GetTraits()));
+        foreach(Tweet tweet in selectableTweetDB.GetNumberOfSelectableTweets(5))
         {
             selectableTweets.Add(tweet);
         }
@@ -132,7 +132,7 @@ public class GameManager : MonoBehaviour
         // Add points to meters    
         List<Tweet> selectedTweets = TimelineManager.Instance.GetListOfTimelineTweets();
 
-        // C    alculate and add agenda
+        // Calculate and add agenda
         int addAgendaScore = 0;
         foreach(Tweet tweet in selectedTweets)
         {
