@@ -1,37 +1,37 @@
 {
     "mocktweets":[
         {
-            "avatarResourcePath": "sample_avatar",
+            "avatarResourcePath": "elephant-head",
             "name": "Gerwant",
             "handle": "witcherOfficial",
             "content": "i've just played skyrim on my #cycplus, bethesda rocks!"
         },
         {
-            "avatarResourcePath": "sample_avatar",
+            "avatarResourcePath": "giant-squid",
             "name": "Tombstone",
             "handle": "epilogy",
             "content": "chcialem jechac rowerem 50 kilometrow do lodzi, ale umarlbym po drodze"
         },
         {
-            "avatarResourcePath": "sample_avatar",
+            "avatarResourcePath": "panda",
             "name": "Kawaioppe",
             "handle": "yourfavoritetank",
             "content": "Dark Forces to bardzo brutalna gra, pelna przemocy"
         },
         {
-            "avatarResourcePath": "sample_avatar",
+            "avatarResourcePath": "parrot-head",
             "name": "Indiana Tomes",
             "handle": "averagewhipenjoyer",
             "content": "i've just played skyrim on my #cycplus, bethesda rocks!"
         },
         {
-            "avatarResourcePath": "sample_avatar",
+            "avatarResourcePath": "shark-fin",
             "name": "Gerwant",
             "handle": "monsterhunter",
             "content": "Starfield will have minimum 60 fps on ultra on Celeron #starfield"
         },
         {
-            "avatarResourcePath": "sample_avatar",
+            "avatarResourcePath": "whale-tail",
             "name": "Luke Groundwalker",
             "handle": "sandlover",
             "content": "I like to tweet very much"
@@ -43,25 +43,25 @@
             "content": "Can someone call the bondulance?! $stron $agent $forHerMajesty"
         },
         {
-            "avatarResourcePath": "sample_avatar",
+            "avatarResourcePath": "mounted-knight",
             "name": "The Council",
             "handle": "councilOfficial",
             "content": "Welcome @sandlover to the coucil! But we do not ground you rank of he master. $justCoucilThings"
         },
         {
-            "avatarResourcePath": "sample_avatar",
+            "avatarResourcePath": "pegasus",
             "name": "CuriousGuy",
             "handle": "iAMaROBOT",
             "content": "I just met some green people! Cannot believe they are here with me $mars $redPlanet $allAlone"
         },
         {
-            "avatarResourcePath": "sample_avatar",
+            "avatarResourcePath": "praying-mantis",
             "name": "Very Smart Man",
             "handle": "freeThinker",
             "content": "The banana lobby tries to break our spines! Eat only straight banana, not curved ones! $watchOut $startThinking"
         },
         {
-            "avatarResourcePath": "sample_avatar",
+            "avatarResourcePath": "penguin",
             "name": "Mark Green",
             "handle": "gameDevWorkshop",
             "content": "Maybe I should make a competition for game developers? $GDWJam2023 "
