@@ -24,7 +24,12 @@ public class SelectableTweetsManager : MonoBehaviour
     }
 
     public void StartSelectableTweetsManager( List<Tweet> listOfTweets) {
+        Debug.Log($"listOfTweets.count {listOfTweets.Count}");
         selectableTweets = listOfTweets;
+        foreach(Tweet tweet in selectableTweets)
+        {
+            tweet.SetSelected(false);
+        }
         VisualiseTweets();
     }
 
@@ -58,6 +63,7 @@ public class SelectableTweetsManager : MonoBehaviour
     }
     public void AddTweetToSelectable(Tweet tweet)
     {
+        Debug.Log("Called add Tweet to selectable");
         selectableTweets.Add(tweet);
         TimelineManager.Instance.RemoteTweetFromSlot(tweet.GetSelectedIndex());
         tweet.SetSelected(false);

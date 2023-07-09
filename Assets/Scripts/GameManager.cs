@@ -6,14 +6,17 @@ using System;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set;}
+    [SerializeField] Transform endScreen;
+    [SerializeField] Transform tutorialScreen;
     public string pfpResourcePath = "sample_avatar";
-
     private int turnCounter = 0;
     private int targetCounter = 0;
 
     private UserProfile currentTarget;
     private UserProfileDB usersDB;
     private TimelineTweetDB timelineTweetDB;
+    private SelectableTweetDB selectableTweetDB;
+    private TraitDB traitDB;
     
     private List<Tweet> bangerTweets;
     private List<UserAgendaCompletion> metTargets;
@@ -23,7 +26,7 @@ public class GameManager : MonoBehaviour
 
     private const int MAX_AGENDA_SCORE = 6;
     private const int MIN_AGENDA_SCORE = 6;
-    private const int MAX_BOREDOM_LEVEL = 10;
+    private const int MAX_BOREDOM_LEVEL = 15;
     private const int MIN_BOREDOM_LEVEL = 0;
     private void Awake() {
         if ( Instance != null)
@@ -36,16 +39,27 @@ public class GameManager : MonoBehaviour
         currentTarget = new UserProfile();
         usersDB = new UserProfileDB();
         timelineTweetDB = new TimelineTweetDB();
+        selectableTweetDB = new SelectableTweetDB();
+        traitDB = new TraitDB();
         usersDB.StartDB();
         timelineTweetDB.StartDB();
+        selectableTweetDB.StartDB();
+        traitDB.StartDB();
 
         bangerTweets = new List<Tweet>();
         metTargets = new List<UserAgendaCompletion>();
     }
 
     private void Start() {
+        tutorialScreen.gameObject.SetActive(true);
+    }
+
+    public void StartGame()
+    {
+        tutorialScreen.gameObject.SetActive(false);
         StartRound();
     }
+
     public void StartRound()
     {
         // Setup new target
@@ -55,19 +69,19 @@ public class GameManager : MonoBehaviour
         turnCounter = 0;
         // Start turn -> load tweets to use
         StartTurn();
+        Debug.Log("New round started");
     }
     public void StartTurn()
     {
         
         // Prepare new selectable tweets;
         List<Tweet> selectableTweets = new List<Tweet>();
-        selectableTweets.Add(new Tweet(pfpResourcePath, "Luke Groundwalker", "sandlover", "I like to tweet very much", 2));
-        selectableTweets.Add(new Tweet(pfpResourcePath, "Indiana Tomes", "averagewhipenjoyer", "Starfield will have minimum 60 fps on ultra on Celeron #starfield", 0));
-        selectableTweets.Add(new Tweet(pfpResourcePath, "Gerwant from Poland", "monsterhunter", "Skyrim should run on your bed clock", 0));
-        // selectableTweets.Add(new Tweet(pfp, "Rahid", "otaku_in_closet", "It's not like I like anime bbbbbba-ka!!!! #anime #catgirlsforall"));
-        // selectableTweets.Add(new Tweet(pfp, "Shockwellenreiter", "bicyc", "Cycling in the nineties!!! #cycplus"));
-        selectableTweets.Add(new Tweet(pfpResourcePath, "Indiana Tomes", "averagewhipenjoyer", "Starfield will have minimum 60 fps on ultra on Celeron #starfield", 0));
-        selectableTweets.Add(new Tweet(pfpResourcePath, "Gerwant from Poland", "monsterhunter", "Skyrim should run on your bed clock", 1));
+
+        selectableTweets.Add(selectableTweetDB.GetSpecificTweet(currentTarget.GetTraits()));
+        foreach(Tweet tweet in selectableTweetDB.GetNumberOfSelectableTweets(4))
+        {
+            selectableTweets.Add(tweet);
+        }
 
         SelectableTweetsManager.Instance.StartSelectableTweetsManager(selectableTweets);
 
@@ -86,10 +100,8 @@ public class GameManager : MonoBehaviour
     {
         // Get new target from database
         currentTarget = usersDB.PopUserProfile();
-        currentTarget.traits = new string[] {
-            "Likes to visit lots of places", 
-            "Fond of starships", 
-            "Lives Long and Prospers"};
+        string[] traitsForTarget = traitDB.GetNumOfTraits(3);
+        currentTarget.traits = traitsForTarget;
 
         TargetInformationUI.Instance.SetTargetUser(currentTarget);
         
@@ -128,9 +140,10 @@ public class GameManager : MonoBehaviour
             }
             addAgendaScore += tweet.GetAgendaScore();
         }
-
+        Debug.Log($"Add Agenda score at the end of turn {addAgendaScore}");
         agendaScore += addAgendaScore;
         agendaScore = Mathf.Clamp(agendaScore, MIN_AGENDA_SCORE, MAX_AGENDA_SCORE);
+        Debug.Log($"Agenda score at the end of turn {agendaScore}");
 
         // Calculate and add boredom level
         int countMatches = 0;
@@ -148,14 +161,22 @@ public class GameManager : MonoBehaviour
         }
 
         // Max 9 mistmaches - whatever match they had
-        finalCount = -9 + countMatches;
+        finalCount = 9 - countMatches;
+        Debug.Log($"Count of traits at the end of turn {finalCount}");
         boredomLevel += finalCount;
+        Debug.Log($"Boredom level {boredomLevel}");
         boredomLevel = Mathf.Clamp(boredomLevel, MIN_BOREDOM_LEVEL, MAX_BOREDOM_LEVEL);
+
+        TargetInformationUI.Instance.UpdateBars(agendaScore, boredomLevel);
+        // Clean Timeline and selectable data
+        TimelineManager.Instance.CleanTimelineManager();
+        SelectableTweetsManager.Instance.CleanSelectableTweetsManager();
         if (boredomLevel == MAX_BOREDOM_LEVEL)
         {
             // User lost this target
             TargetInformationUI.Instance.UpdateBars(0, boredomLevel);
             EndRound();
+            return;
         }
 
         if (agendaScore >= 4)
@@ -163,15 +184,12 @@ public class GameManager : MonoBehaviour
             // User already won?
             TargetInformationUI.Instance.UpdateBars(agendaScore, boredomLevel);
             EndRound();
+            return;
         }
-
-        TargetInformationUI.Instance.UpdateBars(agendaScore, boredomLevel);
         turnCounter++;
         Debug.Log($"Turn counter: {turnCounter}");
 
-        // Clean Timeline and selectable data
-        TimelineManager.Instance.CleanTimelineManager();
-        SelectableTweetsManager.Instance.CleanSelectableTweetsManager();
+        
         if (turnCounter == 3)
         {
             EndRound();
@@ -186,6 +204,7 @@ public class GameManager : MonoBehaviour
     {
         // Check if all targets done
         Debug.Log("Round ended");
+        Debug.Log($"Agenda score at the end of round {agendaScore}");
         targetCounter++;
         // Check different agendaLevels, set flags
         if (agendaScore >= 4)
@@ -219,16 +238,17 @@ public class GameManager : MonoBehaviour
             }
         }
 
+        EndScreenManager end = endScreen.GetComponent<EndScreenManager>();
         if (countWins >=2)
         {
-            Debug.Log("GAME WON");
-            Debug.Log("YOU DID WELL MISTER ALGORITHM");
+            end.SetData(bangerTweets, metTargets, true);
         }
         else
         {
-            Debug.Log("GAME OVER");
-            Debug.Log("YOU ARE BAD ALGORITHM");
+            end.SetData(bangerTweets, metTargets, true);
         }
+
+        end.SetEnabled(true);
         
     }
 }
