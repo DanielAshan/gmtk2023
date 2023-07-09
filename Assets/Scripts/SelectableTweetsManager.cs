@@ -24,6 +24,7 @@ public class SelectableTweetsManager : MonoBehaviour
     }
 
     public void StartSelectableTweetsManager( List<Tweet> listOfTweets) {
+        Debug.Log($"listOfTweets.count {listOfTweets.Count}");
         selectableTweets = listOfTweets;
         VisualiseTweets();
     }

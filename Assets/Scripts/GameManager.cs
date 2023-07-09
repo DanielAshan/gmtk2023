@@ -61,6 +61,7 @@ public class GameManager : MonoBehaviour
         turnCounter = 0;
         // Start turn -> load tweets to use
         StartTurn();
+        Debug.Log("New round started");
     }
     public void StartTurn()
     {
@@ -137,9 +138,10 @@ public class GameManager : MonoBehaviour
             }
             addAgendaScore += tweet.GetAgendaScore();
         }
-
+        Debug.Log($"Add Agenda score at the end of turn {addAgendaScore}");
         agendaScore += addAgendaScore;
         agendaScore = Mathf.Clamp(agendaScore, MIN_AGENDA_SCORE, MAX_AGENDA_SCORE);
+        Debug.Log($"Agenda score at the end of turn {agendaScore}");
 
         // Calculate and add boredom level
         int countMatches = 0;
@@ -157,14 +159,22 @@ public class GameManager : MonoBehaviour
         }
 
         // Max 9 mistmaches - whatever match they had
-        finalCount = -9 + countMatches;
+        finalCount = 9 - countMatches;
+        Debug.Log($"Count of traits at the end of turn {finalCount}");
         boredomLevel += finalCount;
+        Debug.Log($"Boredom level {boredomLevel}");
         boredomLevel = Mathf.Clamp(boredomLevel, MIN_BOREDOM_LEVEL, MAX_BOREDOM_LEVEL);
+
+        TargetInformationUI.Instance.UpdateBars(agendaScore, boredomLevel);
+        // Clean Timeline and selectable data
+        TimelineManager.Instance.CleanTimelineManager();
+        SelectableTweetsManager.Instance.CleanSelectableTweetsManager();
         if (boredomLevel == MAX_BOREDOM_LEVEL)
         {
             // User lost this target
             TargetInformationUI.Instance.UpdateBars(0, boredomLevel);
             EndRound();
+            return;
         }
 
         if (agendaScore >= 4)
@@ -172,15 +182,12 @@ public class GameManager : MonoBehaviour
             // User already won?
             TargetInformationUI.Instance.UpdateBars(agendaScore, boredomLevel);
             EndRound();
+            return;
         }
-
-        TargetInformationUI.Instance.UpdateBars(agendaScore, boredomLevel);
         turnCounter++;
         Debug.Log($"Turn counter: {turnCounter}");
 
-        // Clean Timeline and selectable data
-        TimelineManager.Instance.CleanTimelineManager();
-        SelectableTweetsManager.Instance.CleanSelectableTweetsManager();
+        
         if (turnCounter == 3)
         {
             EndRound();
@@ -195,6 +202,7 @@ public class GameManager : MonoBehaviour
     {
         // Check if all targets done
         Debug.Log("Round ended");
+        Debug.Log($"Agenda score at the end of round {agendaScore}");
         targetCounter++;
         // Check different agendaLevels, set flags
         if (agendaScore >= 4)
