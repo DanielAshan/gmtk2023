@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class SelectableTweetDB
@@ -79,6 +80,54 @@ public class SelectableTweetDB
         return list;
     }
 
+    public Tweet GetSpecificTweet(string[] matchingTraitStrings, int matchingScoreVal = 2)
+    {
+        if (tweets.Count == 0)
+        {
+            ReloadTweets();
+        }
+
+        Tweet tweetToBeReturn = new Tweet();
+        bool found = GetTweetWithTraitsAndSore(out tweetToBeReturn, matchingTraitStrings, matchingScoreVal);
+
+        if (!found)
+        {
+            // Tweet not found pop everything start from new
+            while(tweets.Count > 0)
+            {
+                Tweet tweet = PopSelectableTweet();
+            }
+
+            ReloadTweets();
+            GetTweetWithTraitsAndSore(out tweetToBeReturn, matchingTraitStrings, matchingScoreVal);
+            return tweetToBeReturn;
+        }
+        else 
+        {
+            return tweetToBeReturn;
+        }
+        throw new System.Exception("GetSpecificTwit couldn't find requested twit.");
+    }
+
+    private bool GetTweetWithTraitsAndSore(out Tweet outTweet, string[] matchingTraitStrings, int matchingScoreVal = 2)
+    {
+        foreach (Tweet tweet in tweets)
+        {
+            foreach (string trait in tweet.GetTraits())
+            {
+                if (tweet.GetAgendaScore() == matchingScoreVal && 
+                    matchingTraitStrings.Any(s => trait.Contains(s)))
+                    {
+                        tweets.Remove(tweet);
+                        usedTweets.Add(tweet);
+                        outTweet = tweet;
+                        return true;
+                    }
+            }
+        }
+        outTweet = null;
+        return false;
+    }
     public void ReloadTweets()
     {
         tweets = usedTweets;
@@ -95,23 +144,5 @@ public class SelectableTweetDB
             Debug.Log(tweet.GetUserName());
             Debug.Log(tweet.GetTraits());
         }
-    }
-
-    public Tweet GetSpecificTweet (string matchingTraitString, int matchingScoreVal = 2)
-    {
-        Debug.Log("called getspecifictwit");
-
-        foreach (Tweet tweet in tweets)
-        {
-            foreach (string trait in tweet.GetTraits())
-            {
-                if (tweet.GetAgendaScore() == matchingScoreVal && 
-                    trait.Contains(matchingTraitString))
-                    {
-                        return tweet;
-                    }
-            }
-        }
-        throw new System.Exception("GetSpecificTwit couldn't find requested twit.");
     }
 }
