@@ -183,6 +183,87 @@
                 "Has fears of being surveillanced by the government.",
                 "Makes decisions in life based on astrology."
             ] 
-        }                
+        },
+        {
+            "content": "been recording some music lately and was wondering about getting a new bass guitar - open to recommendations $guitar $bass $notafish $music",
+            "profile_pic": "sample_avatar",
+            "username": "Curt Ianis",
+            "handle": "hookDivision",
+            "agenda_score": 0,
+            "triggered_traits":[
+                "Loves hiking for hours with headphones on."
+            ] 
+        },
+        {
+            "content": "We, as a humanity tend to focus too much on the violence - instead we should tighten our communities. $Ropes, not $Sticks.",
+            "profile_pic": "sample_avatar",
+            "username": "Jack Iroquois",
+            "handle": "video_san2001",
+            "agenda_score": 0,
+            "triggered_traits":[
+                "Despises working 9 to 5, wishes they'd become a game developer."
+            ] 
+        },
+        {
+            "content": "going to global economic summit soon, if anyone wants to grab a beer just sent me a private birdle",
+            "profile_pic": "sample_avatar",
+            "username": "Bill Wright",
+            "handle": "simaxe_connaisseur",
+            "agenda_score": 0,
+            "triggered_traits":[
+                "Quotes Adam Smith often, just to highlight economic background."
+            ] 
+        },
+        {
+            "content": "making poll, help me out guys - GODOT, Unity or UE for my next indie AR, blockchain-infused 2,5D cafe management sim?",
+            "profile_pic": "sample_avatar",
+            "username": "Joe Romeo",
+            "handle": "suplex_dat_train",
+            "agenda_score": 0,
+            "triggered_traits":[
+                "Despises working 9 to 5, wishes they'd become a game developer."
+            ] 
+        },
+        {
+            "content": "Got a sweet deal on my new set of tires, gunna go and change them tomorrow - may do a live stream from my $garage",
+            "profile_pic": "sample_avatar",
+            "username": "Bob Cubitz",
+            "handle": "suplex_dat_train",
+            "agenda_score": 0,
+            "triggered_traits":[
+                "Spends a lot of time online browsing sports cars."
+            ] 
+        },
+        {
+            "content": "may lose my job soon :( they're closing the shelter and intend to place another mall in it's place and it sucks big time",
+            "profile_pic": "sample_avatar",
+            "username": "Isabelle Mroz",
+            "handle": "isabelle16",
+            "agenda_score": 0,
+            "triggered_traits":[
+                "Has three cats that are treated like a part of the family.",
+                "Vocal member of the Ecologist NGO."
+            ] 
+        },
+        {
+            "content": "New activity on numbers stations near the city hall, anyone has any idea what that could mean?",
+            "profile_pic": "sample_avatar",
+            "username": "Steve Mason",
+            "handle": "cipher007",
+            "agenda_score": 0,
+            "triggered_traits":[
+                "Has fears of being surveillanced by the government."
+            ] 
+        },
+        {
+            "content": "New activity on numbers stations near the city hall, anyone has any idea what that could mean?",
+            "profile_pic": "sample_avatar",
+            "username": "Steve Mason",
+            "handle": "cipher007",
+            "agenda_score": 0,
+            "triggered_traits":[
+                "Has fears of being surveillanced by the government."
+            ] 
+        }
     ]
 }
