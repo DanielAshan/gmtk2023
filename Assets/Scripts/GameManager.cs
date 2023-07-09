@@ -36,6 +36,12 @@ public class GameManager : MonoBehaviour
     private const int MIN_AGENDA_SCORE = 0;
     private const int MAX_BOREDOM_LEVEL = 15;
     private const int MIN_BOREDOM_LEVEL = 0;
+    private bool baseTimerFlag = false;
+    private float baseTimer = 0;
+    private float BASE_TIMER_TIME = 5;    
+    private bool boredomTimerFlag = false;
+    private float boredomTimer = 0;
+    private float BOREDOM_TIMER_TIME = 1;  
     private void Awake() {
         if ( Instance != null)
         {
@@ -57,7 +63,69 @@ public class GameManager : MonoBehaviour
         bangerTweets = new List<Tweet>();
         metTargets = new List<UserAgendaCompletion>();
     }
+    private void Update() {
+        if (baseTimerFlag) 
+        {
+            baseTimer -= Time.deltaTime;
+            if (baseTimer < 0)
+            {
+                EndBaseTimer();
+            }
+        }
 
+        if (boredomTimerFlag)
+        {
+            boredomTimer -= Time.deltaTime;
+            if (boredomTimer < 0)
+            {
+                ResetBoredomTimer();
+            }
+        }
+    }
+
+    private void StartBaseTimer()
+    {
+        baseTimerFlag = true;
+        baseTimer = BASE_TIMER_TIME;
+    }
+
+    private void StopBaseTimer()
+    {
+        baseTimerFlag = false;
+    }
+    private void EndBaseTimer()
+    {
+        Debug.Log("BaseTimer timeout");
+        StopBaseTimer();
+        StartBoredomTimer();
+    }
+
+    private void StartBoredomTimer()
+    {
+        boredomTimerFlag = true;
+        boredomTimer = BOREDOM_TIMER_TIME;
+    }
+
+    private void ResetBoredomTimer()
+    {
+        Debug.Log("Boredom timeout");
+        boredomTimer = BOREDOM_TIMER_TIME;
+        boredomLevel += 1;
+        TargetInformationUI.Instance.UpdateBars(agendaScore, boredomLevel);
+        if (boredomLevel == MAX_BOREDOM_LEVEL)
+        {
+            // User lost this target
+            TimelineManager.Instance.CleanTimelineManager();
+            SelectableTweetsManager.Instance.CleanSelectableTweetsManager();
+            EndRound();
+            return;
+        }
+    }
+
+    private void StopBoredomTimer()
+    {
+        boredomTimerFlag = false;
+    }
     private void Start() {
         tutorialScreen.gameObject.SetActive(true);
     }
@@ -79,11 +147,12 @@ public class GameManager : MonoBehaviour
         StartTurn();
         roundCounterVisual.text = "TARGET INFORMATION \n ROUND " +  targetCounter.ToString() + "/3";
         Debug.Log("New round started");
-
     }
     public void StartTurn()
     {
-        
+        StopBaseTimer();
+        StopBoredomTimer();
+        StartBaseTimer();
         // Prepare new selectable tweets;
         List<Tweet> selectableTweets = new List<Tweet>();
 
@@ -188,6 +257,8 @@ public class GameManager : MonoBehaviour
         if (boredomLevel == MAX_BOREDOM_LEVEL)
         {
             // User lost this target
+            TimelineManager.Instance.CleanTimelineManager();
+            SelectableTweetsManager.Instance.CleanSelectableTweetsManager();
             TargetInformationUI.Instance.UpdateBars(0, boredomLevel);
             EndRound();
             return;
@@ -233,11 +304,15 @@ public class GameManager : MonoBehaviour
         // If some stuff like enough targets done -> end game 
         if (targetCounter == 4)
         {
+            StopBoredomTimer();
             EndGame();
-            return;
+        }
+        else
+        {
+            StartRound();
         }
         // Else start new round
-        StartRound();
+        
 
     }
 

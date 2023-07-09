@@ -59,6 +59,19 @@ public class TargetInformationUI : MonoBehaviour
         agendaSlider.value = agendaScore;
         agendaCounter.text  = agendaScore.ToString() + "/6";
         boredomSlider.value = boredomLevel;
+        Image boredomFill = boredomSlider.GetComponentInChildren<Image>();
+        if (boredomLevel > 0 && boredomLevel <= 5)
+        {
+            boredomFill.color = Color.green;
+        }
+        else if ((boredomLevel > 5 && boredomLevel <= 10))
+        {
+            boredomFill.color = Color.yellow;
+        }
+        else if (boredomLevel > 10)
+        {
+            boredomFill.color = Color.red;
+        }
         boredomCounter.text  = boredomLevel.ToString() + "/15";
     }
     
