@@ -23,7 +23,7 @@ public class UserProfile
 
     public UserProfile()
     {
-        // No action, empty object
+        // No action, empty
     }
 
     public void SetTraits(string[] traits)
@@ -31,7 +31,11 @@ public class UserProfile
         this.traits = traits;
     }
 
-    public string GetTraits()
+    public string[] GetTraits()
+    {
+        return traits;
+    }
+    public string GetTraitsForUi()
     {
         string traitList = "";
         foreach (string trait in traits)

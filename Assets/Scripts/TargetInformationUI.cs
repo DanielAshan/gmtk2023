@@ -49,9 +49,16 @@ public class TargetInformationUI : MonoBehaviour
         userNameText.text = targetUser.userName;
         handleText.text = targetUser.userHandle;
         descriptonText.text = targetUser.description;
-        traitsText.text = targetUser.GetTraits();
+        traitsText.text = targetUser.GetTraitsForUi();
 
         texture = Resources.Load(targetUser.avatarResourcePath) as Texture2D;
         avatar.texture = texture;
     }
+
+    public void UpdateBars(int agendaScore, int boredomLevel)
+    {
+        agendaSlider.value = agendaScore;
+        boredomSlider.value = boredomLevel;
+    }
+    
 }

@@ -22,7 +22,7 @@ public class TweetVisual : MonoBehaviour
         button.onClick.AddListener(HandleButtonOnClick);
     }
 
-    public void SetTweetData(string pfpPath, string name, string handle, string text) => tweet.SetTweetData(pfpPath, name, handle, text);
+    public void SetTweetData(string pfpPath, string name, string handle, string text, int agendaScore) => tweet.SetTweetData(pfpPath, name, handle, text, agendaScore);
     public bool IsEmpty() => tweet.IsEmpty();
     public bool GetShouldBeInteractable() => tweet.GetShouldBeInteractable();
 

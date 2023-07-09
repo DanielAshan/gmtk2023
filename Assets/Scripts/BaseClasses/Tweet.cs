@@ -8,11 +8,33 @@ public class Tweet
     private string userName;
     private string userHandle;
     private string tweetText;
+    private string[] traits;
     private bool isEmpty = true;
     private bool shouldBeInteractable = true;
     private bool isSelected = false;
     private int selectedIndex = -1;
+    private int agendaScore;
 
+    public Tweet(string pfpPath, string username, string userHandle, string tweetText, string[] traits, int agendaScore)
+    {
+        this.pfpResourcePath = pfpPath;
+        this.traits = traits;
+        this.userName = username;
+        this.userHandle = "@" + userHandle;
+        this.tweetText = tweetText;
+        this.agendaScore = agendaScore;
+        this.isEmpty = false;
+    }
+
+    public Tweet(string pfpPath, string username, string userHandle, string tweetText, int agendaScore)
+    {
+        this.pfpResourcePath = pfpPath;
+        this.userName = username;
+        this.userHandle = "@" + userHandle;
+        this.tweetText = tweetText;
+        this.agendaScore = agendaScore;
+        this.isEmpty = false;
+    }
 
     public Tweet(string pfpPath, string username, string userHandle, string tweetText)
     {
@@ -23,12 +45,14 @@ public class Tweet
         this.isEmpty = false;
     }
 
-    public Tweet(string username, string userHandle, string tweetText)
+
+    public Tweet(string username, string userHandle, string tweetText, int agendaScore)
     {
         this.pfpResourcePath = "";
         this.userName = username;
         this.userHandle = "@" + userHandle;
         this.tweetText = tweetText;
+        this.agendaScore = agendaScore;
         this.isEmpty = false;
     }
 
@@ -39,12 +63,13 @@ public class Tweet
         this.tweetText = "SELECT TWEET";
     } 
 
-    public void SetTweetData(string pfpPath, string username, string userHandle, string tweetText)
+    public void SetTweetData(string pfpPath, string username, string userHandle, string tweetText, int agendaScore)
     {
         this.pfpResourcePath = pfpPath;
         this.userName = username;
         this.userHandle = "@" + userHandle;
         this.tweetText = tweetText;
+        this.agendaScore = agendaScore;
         this.isEmpty = false;
     }
 
@@ -104,5 +129,20 @@ public class Tweet
     public int GetSelectedIndex()
     {
         return selectedIndex;
+    }
+
+    public int GetAgendaScore()
+    {
+        return agendaScore;
+    }
+
+    public void SetTraits(string[] traits)
+    {
+        this.traits = traits;
+    }
+
+    public string[] GetTraits()
+    {
+        return traits;
     }
 }
