@@ -21,8 +21,7 @@ public class TargetInformationUI : MonoBehaviour
     [SerializeField]
     private Slider boredomSlider;
 
-    [SerializeField]
-    public RawImage avatar;
+    [SerializeField] public RawImage avatar;
 
     Texture2D texture;
 

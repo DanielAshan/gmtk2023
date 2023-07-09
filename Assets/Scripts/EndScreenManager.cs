@@ -51,6 +51,11 @@ public class EndScreenManager : MonoBehaviour
         foreach (UserAgendaCompletion user in metTargets )
         {
             // Instaniate met targets
+            Transform newObject = Instantiate(userProfilePrefab, metTargetsListTransform).transform;
+            FinalTargetInfoUI newUser = newObject.GetComponent<FinalTargetInfoUI>();
+            newUser.SetUser(user.userProfile);
+            newUser.SetInfluenced(user.influenced);
+            metTargetsVisuals.Add(newObject);
         }
 
         if (isGameWon)
