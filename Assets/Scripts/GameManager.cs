@@ -74,7 +74,7 @@ public class GameManager : MonoBehaviour
         // selectableTweets.Add(new Tweet(pfp, "Shockwellenreiter", "bicyc", "Cycling in the nineties!!! #cycplus"));
         // selectableTweets.Add(new Tweet(pfpResourcePath, "Indiana Tomes", "averagewhipenjoyer", "Starfield will have minimum 60 fps on ultra on Celeron #starfield", 0));
         // selectableTweets.Add(new Tweet(pfpResourcePath, "Gerwant from Poland", "monsterhunter", "Skyrim should run on your bed clock", 1));
-        selectableTweets.Add(selectableTweetDB.GetSpecificTweet(currentTarget.GetTraits()[0]));
+        selectableTweets.Add(selectableTweetDB.GetSpecificTweet(currentTarget.GetTraits()));
         foreach(Tweet tweet in selectableTweetDB.GetNumberOfSelectableTweets(4))
         {
             selectableTweets.Add(tweet);
