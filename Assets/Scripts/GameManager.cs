@@ -68,13 +68,7 @@ public class GameManager : MonoBehaviour
         
         // Prepare new selectable tweets;
         List<Tweet> selectableTweets = new List<Tweet>();
-        // selectableTweets.Add(new Tweet(pfpResourcePath, "Luke Groundwalker", "sandlover", "I like to tweet very much", 2));
-        // selectableTweets.Add(new Tweet(pfpResourcePath, "Indiana Tomes", "averagewhipenjoyer", "Starfield will have minimum 60 fps on ultra on Celeron #starfield", 0));
-        // selectableTweets.Add(new Tweet(pfpResourcePath, "Gerwant from Poland", "monsterhunter", "Skyrim should run on your bed clock", 0));
-        // selectableTweets.Add(new Tweet(pfp, "Rahid", "otaku_in_closet", "It's not like I like anime bbbbbba-ka!!!! #anime #catgirlsforall"));
-        // selectableTweets.Add(new Tweet(pfp, "Shockwellenreiter", "bicyc", "Cycling in the nineties!!! #cycplus"));
-        // selectableTweets.Add(new Tweet(pfpResourcePath, "Indiana Tomes", "averagewhipenjoyer", "Starfield will have minimum 60 fps on ultra on Celeron #starfield", 0));
-        // selectableTweets.Add(new Tweet(pfpResourcePath, "Gerwant from Poland", "monsterhunter", "Skyrim should run on your bed clock", 1));
+
         selectableTweets.Add(selectableTweetDB.GetSpecificTweet(currentTarget.GetTraits()));
         foreach(Tweet tweet in selectableTweetDB.GetNumberOfSelectableTweets(4))
         {

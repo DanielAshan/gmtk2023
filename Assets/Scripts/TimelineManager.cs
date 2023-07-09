@@ -96,6 +96,7 @@ public class TimelineManager : MonoBehaviour
     }
     public void AddTweetToSlot(Tweet tweet)
     {
+        Debug.Log("Called add Tweet to Slot");
         int emptyIndex = FindFirstEmptySlot();
         if ( emptyIndex == -1 )
         {
