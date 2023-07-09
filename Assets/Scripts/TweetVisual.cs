@@ -72,6 +72,8 @@ public class TweetVisual : MonoBehaviour
         {
             TimelineManager.Instance.AddTweetToSlot(tweet);
         }
+
+        
         
     }
 

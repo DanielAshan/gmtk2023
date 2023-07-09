@@ -38,10 +38,10 @@ public class GameManager : MonoBehaviour
     private const int MIN_BOREDOM_LEVEL = 0;
     private bool baseTimerFlag = false;
     private float baseTimer = 0;
-    private float BASE_TIMER_TIME = 5;    
+    private float BASE_TIMER_TIME = 20;    
     private bool boredomTimerFlag = false;
     private float boredomTimer = 0;
-    private float BOREDOM_TIMER_TIME = 1;  
+    private float BOREDOM_TIMER_TIME = 15;  
     private void Awake() {
         if ( Instance != null)
         {
