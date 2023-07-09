@@ -1,28 +1,37 @@
 {
     "traits":[
         {
-            "content": "Overloaduje proletariat w wolnym czasie"
+            "content": "Spends a lot of time online browsing sports cars."
         },
         {
-            "content": "Oglada OnePiece w sekrecie"
+            "content": "Tech-gizmo obsessed geek"
         },
         {
-            "content": "Kupil trzy kolekcjonerki Zeldy"
+            "content": "Loves hiking for hours with headphones on."
         },
         {
-            "content": "W ramach hobby biega po szaszlyku"
+            "content": "Makes decisions in life based on astrology."
         },
         {
-            "content": "Wypchnal na repo Todda Howarda"
+            "content": "Despises working 9 to 5, wishes they'd become a game developer."
         },
         {
-            "content": "Czesto gra w CSa na kierownicy"
+            "content": "Believes that society should return to the traditional, patriarchal model."
         },
         {
-            "content": "Pewnego razu zasnal na imprezie i obudzil sie na statku do Vvardenfell"
+            "content": "Proudly paints miniatures in spare time."
         },
         {
-            "content": "Robi dziury w butach do wspinaczki po to, zeby miec powod do kupna nowych"
+            "content": "Has fears of being surveillanced by the government."
+        },
+        {
+            "content": "Commutes to work for two hours each day."
+        },
+        {
+            "content": "Vocal member of the Ecologist NGO."
+        },
+        {
+            "content": "Quotes Adam Smith often, just to highlight his economic background."
         }
     ]
 }

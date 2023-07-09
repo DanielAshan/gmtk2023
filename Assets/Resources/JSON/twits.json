@@ -1,63 +1,63 @@
 {
     "twits":[
         {
-            "content": "i've just played skyrim on my #cycplus, bethesda rocks!",
+            "content": "The EC has unveiled it's plan to provide sustainable and cheap means of mass transportation - there'll be less traffic on the roads! $EC2032 $FreeTheRoads",
             "profile_pic": "sample_avatar",
-            "username": "Gural",
-            "handle": "ciupaga",
+            "username": "George Mustang",
+            "handle": "cargo_vroom",
             "agenda_score": 2,
             "triggered_traits":[
-                "pierwszy trait",
-                "Robi dziury w butach do wspinaczki po to, zeby miec powod do kupna nowych",
-                "trzeci trait"
+                "Spends a lot of time online browsing sports cars.",
+                "Commutes to work for two hours each day.",
+                "Vocal member of the Ecologist NGO."
             ] 
         },
         {
-            "content": "i've just played bethesda on my #cycplus, bethesda rocks!",
+            "content": "Went hiking with my cat and I saw these construction workers laying down new public roads, anyone know something more about this?",
             "profile_pic": "sample_avatar",
-            "username": "Gural",
-            "handle": "ciupaga",
-            "agenda_score": 2,
+            "username": "Mike G",
+            "handle": "luke_catwalker901",
+            "agenda_score": 1,
             "triggered_traits":[
-                "Oglada OnePiece w sekrecie",
-                "Czesto gra w CSa na kierownicy",
-                "third trait"
+                "Has fears of being surveillanced by the government.",
+                "Commutes to work for two hours each day.",
+                "Quotes Adam Smith often, just to highlight his economic background."
             ] 
         },
         {
-            "content": "i've just played morrowind on my #cycplus, bethesda rocks!",
+            "content": "almost got run over by some mental driver someone should put a $break on this car madness NOW",
             "profile_pic": "sample_avatar",
-            "username": "Gural",
-            "handle": "ciupaga",
-            "agenda_score": 2,
+            "username": "文好",
+            "handle": "alg0rithm_masterr",
+            "agenda_score": 0,
             "triggered_traits":[
-                "pierwszy trait",
-                "Kupil trzy kolekcjonerki Zeldy",
-                "trzeci trait"
+                "Vocal member of the Ecologist NGO.",
+                "Commutes to work for two hours each day.",
+                "Loves hiking for hours with headphones on."
             ] 
         },
         {
-            "content": "loscypek tanio sprzedam",
+            "content": "heard some interesting news about $techsector, government has some plans to incorporate $crypto in daily use",
             "profile_pic": "sample_avatar",
-            "username": "Gural",
-            "handle": "ciupaga",
+            "username": "Viola Donovan",
+            "handle": "do_vio1337",
             "agenda_score": 2,
             "triggered_traits":[
-                "Pewnego razu zasnal na imprezie i obudzil sie na statku do Vvardenfell",
-                "drugi trait",
-                "W ramach hobby biega po szaszlyku"
+                "Quotes Adam Smith often, just to highlight his economic background.",
+                "Commutes to work for two hours each day.",
+                "Tech-gizmo obsessed geek"
             ] 
         },
         {
-            "content": "why i am still selling oscypek",
+            "content": "woot found this awesome web3.0 site that aggregates lulcatz, it's called cattit",
             "profile_pic": "sample_avatar",
-            "username": "Gural",
-            "handle": "ciupaga",
-            "agenda_score": 2,
+            "username": "Rosetta Preston",
+            "handle": "burnedRose666",
+            "agenda_score": 0,
             "triggered_traits":[
-                "pierwszy trait",
-                "Wypchnal na repo Todda Howarda",
-                "trzeci trait"
+                "Tech-gizmo obsessed geek",
+                "Commutes to work for two hours each day.",
+                "Tech-gizmo obsessed geek"
             ] 
         }
     ]
