@@ -94,7 +94,7 @@ public class Tweet
 
     public Texture GetUserPFPAsTexture()
     {
-        return Resources.Load(pfpResourcePath) as Texture2D;;
+        return Resources.Load("avatars/" + pfpResourcePath) as Texture2D;
     }
 
     public string GetUserName()

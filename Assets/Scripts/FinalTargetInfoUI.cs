@@ -38,7 +38,7 @@ public class FinalTargetInfoUI : MonoBehaviour
         handleText.text = user.userHandle;
         userName.text = user.userName;
         description.text = user.description;
-        Texture texture = Resources.Load(user.avatarResourcePath) as Texture2D;
+        Texture texture = Resources.Load("avatars/"+user.avatarResourcePath) as Texture2D;
         avatar.texture = texture;
     }    
 

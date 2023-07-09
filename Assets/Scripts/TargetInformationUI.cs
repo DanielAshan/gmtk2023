@@ -50,7 +50,7 @@ public class TargetInformationUI : MonoBehaviour
         descriptonText.text = targetUser.description;
         traitsText.text = targetUser.GetTraitsForUi();
 
-        texture = Resources.Load(targetUser.avatarResourcePath) as Texture2D;
+        texture = Resources.Load("avatars/" + targetUser.avatarResourcePath) as Texture2D;
         avatar.texture = texture;
     }
 
